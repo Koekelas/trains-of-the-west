@@ -1,0 +1,20 @@
+{
+
+    "name": "totw-server",
+    "version": "0.0.1",
+    "author": "Nicolas De Jaeghere",
+    "description": "Trains of the West Server",
+    "main": "server.js",
+
+    "engines": {
+
+        "node": ">=0.6"
+    },
+
+    "dependencies": {
+
+        "node-static": "~0.6",
+        "sockjs": "~0.3",
+        "rbytes": "~0.0"
+    }
+}

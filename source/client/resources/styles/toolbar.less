@@ -1,0 +1,289 @@
+@EMPTY_BORDER_WIDTH: 10px;
+@GAP_SMALL: 1px;
+@GAP_LARGE: 5px;
+
+@BUTTON_WIDTH_HEIGHT: 40px;
+@CALLOUT_TOP_WIDTH: 40px;
+@CALLOUT_TOP_HEIGHT: 1px;
+@ICON_CALLOUT_INDICATOR_X: 0;
+@ICON_ZOOM_IN_X: -(@BUTTON_WIDTH_HEIGHT * 1);
+@ICON_ZOOM_OUT_X: -(@BUTTON_WIDTH_HEIGHT * 2);
+@ICON_ROTATE_CLOCKWISE_X: -(@BUTTON_WIDTH_HEIGHT * 3);
+@ICON_ROTATE_COUNTERCLOCKWISE_X: -(@BUTTON_WIDTH_HEIGHT * 4);
+@ICON_SMOOTH_UP_X: -(@BUTTON_WIDTH_HEIGHT * 5);
+@ICON_ROUGH_UP_X: -(@BUTTON_WIDTH_HEIGHT * 6);
+@ICON_SMOOTH_DOWN_X: -(@BUTTON_WIDTH_HEIGHT * 7);
+@ICON_ROUGH_DOWN_X: -(@BUTTON_WIDTH_HEIGHT * 8);
+@ICON_TRACK_BUILD_X: -(@BUTTON_WIDTH_HEIGHT * 9);
+@ICON_TRACK_DEMOLISH_X: -(@BUTTON_WIDTH_HEIGHT * 10);
+@ICON_DECORATION_BUILD_X: -(@BUTTON_WIDTH_HEIGHT * 11);
+@ICON_DECORATION_DEMOLISH_X: -(@BUTTON_WIDTH_HEIGHT * 12);
+@ICON_FULL_SCREEN_X: -(@BUTTON_WIDTH_HEIGHT * 13);
+@ICON_ENABLED_Y: 0;
+@ICON_DISABLED_Y: -@BUTTON_WIDTH_HEIGHT;
+
+//** general ***********************************************************************************************************
+.toolbar {
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: (@BUTTON_WIDTH_HEIGHT + @EMPTY_BORDER_WIDTH * 2);
+
+    .horizontalCenter {
+
+        width: (@BUTTON_WIDTH_HEIGHT * 7 + @GAP_SMALL * 3 + @GAP_LARGE * 3);
+    }
+
+    .emptyBorder {
+
+        padding: @EMPTY_BORDER_WIDTH;
+    }
+
+    .button {
+
+        position: relative;
+        float: left;
+        width: @BUTTON_WIDTH_HEIGHT;
+        height: @BUTTON_WIDTH_HEIGHT;
+        background: url(../images/toolbar/widgets.png);
+        cursor: pointer;
+
+        .modes {
+
+            position: absolute;
+            top: 0;
+            bottom: @BUTTON_WIDTH_HEIGHT;
+            left: 0;
+            width: 100%;
+            padding-top: @CALLOUT_TOP_HEIGHT;
+            overflow: hidden;
+            background: url(../images/toolbar/calloutTop.png) no-repeat;
+
+            .calloutButton {
+
+                height: @BUTTON_WIDTH_HEIGHT;
+                background: url(../images/toolbar/widgets.png) 0 -(@BUTTON_WIDTH_HEIGHT * 4);
+            }
+
+            .calloutButton:active {
+
+                background-position: 0 -(@BUTTON_WIDTH_HEIGHT * 5);
+            }
+        }
+
+        .iconCalloutIndicator, .iconZoomIn, .iconZoomOut, .iconRotateClockwise, .iconRotateCounterclockwise, .iconSmoothUp, .iconRoughUp, .iconSmoothDown, .iconRoughDown, .iconTrackBuild, .iconTrackDemolish, .iconDecorationBuild, .iconDecorationDemolish, .iconFullScreen {
+
+            height: 100%;
+            background: url(../images/toolbar/icons.png);
+        }
+
+        .iconCalloutIndicator {
+
+            background-position: @ICON_CALLOUT_INDICATOR_X @ICON_ENABLED_Y;
+        }
+
+        .iconZoomIn {
+
+            background-position: @ICON_ZOOM_IN_X @ICON_ENABLED_Y;
+        }
+
+        .iconZoomOut {
+
+            background-position: @ICON_ZOOM_OUT_X @ICON_ENABLED_Y;
+        }
+
+        .iconRotateClockwise {
+
+            background-position: @ICON_ROTATE_CLOCKWISE_X @ICON_ENABLED_Y;
+        }
+
+        .iconRotateCounterclockwise {
+
+            background-position: @ICON_ROTATE_COUNTERCLOCKWISE_X @ICON_ENABLED_Y;
+        }
+
+        .iconSmoothUp {
+
+            background-position: @ICON_SMOOTH_UP_X @ICON_ENABLED_Y;
+        }
+
+        .iconRoughUp {
+
+            background-position: @ICON_ROUGH_UP_X @ICON_ENABLED_Y;
+        }
+
+        .iconSmoothDown {
+
+            background-position: @ICON_SMOOTH_DOWN_X @ICON_ENABLED_Y;
+        }
+
+        .iconRoughDown {
+
+            background-position: @ICON_ROUGH_DOWN_X @ICON_ENABLED_Y;
+        }
+
+        .iconTrackBuild {
+
+            background-position: @ICON_TRACK_BUILD_X @ICON_ENABLED_Y;
+        }
+
+        .iconTrackDemolish {
+
+            background-position: @ICON_TRACK_DEMOLISH_X @ICON_ENABLED_Y;
+        }
+
+        .iconDecorationBuild {
+
+            background-position: @ICON_DECORATION_BUILD_X @ICON_ENABLED_Y;
+        }
+
+        .iconDecorationDemolish {
+
+            background-position: @ICON_DECORATION_DEMOLISH_X @ICON_ENABLED_Y;
+        }
+
+        .iconFullScreen {
+
+            background-position: @ICON_FULL_SCREEN_X @ICON_ENABLED_Y;
+        }
+    }
+
+    .button:active {
+
+        background-position: 0 -@BUTTON_WIDTH_HEIGHT;
+    }
+
+    .selected {
+
+        background-position: 0 -(@BUTTON_WIDTH_HEIGHT * 2);
+    }
+
+    .disabled, .disabled:active {
+
+        background-position: 0 -(@BUTTON_WIDTH_HEIGHT * 3);
+    }
+
+    .disabled {
+
+        .modes {
+
+            background-position: @BUTTON_WIDTH_HEIGHT 0;
+
+            .calloutButton, .calloutButton:active {
+
+                background-position: 0 -(@BUTTON_WIDTH_HEIGHT * 6);
+            }
+        }
+
+        .iconCalloutIndicator {
+
+            background-position: @ICON_CALLOUT_INDICATOR_X @ICON_DISABLED_Y;
+        }
+
+        .iconZoomIn {
+
+            background-position: @ICON_ZOOM_IN_X @ICON_DISABLED_Y;
+        }
+
+        .iconZoomOut {
+
+            background-position: @ICON_ZOOM_OUT_X @ICON_DISABLED_Y;
+        }
+
+        .iconRotateClockwise {
+
+            background-position: @ICON_ROTATE_CLOCKWISE_X @ICON_DISABLED_Y;
+        }
+
+        .iconRotateCounterclockwise {
+
+            background-position: @ICON_ROTATE_COUNTERCLOCKWISE_X @ICON_DISABLED_Y;
+        }
+
+        .iconSmoothUp {
+
+            background-position: @ICON_SMOOTH_UP_X @ICON_DISABLED_Y;
+        }
+
+        .iconRoughUp {
+
+            background-position: @ICON_ROUGH_UP_X @ICON_DISABLED_Y;
+        }
+
+        .iconSmoothDown {
+
+            background-position: @ICON_SMOOTH_DOWN_X @ICON_DISABLED_Y;
+        }
+
+        .iconRoughDown {
+
+            background-position: @ICON_ROUGH_DOWN_X @ICON_DISABLED_Y;
+        }
+
+        .iconTrackBuild {
+
+            background-position: @ICON_TRACK_BUILD_X @ICON_DISABLED_Y;
+        }
+
+        .iconTrackDemolish {
+
+            background-position: @ICON_TRACK_DEMOLISH_X @ICON_DISABLED_Y;
+        }
+
+        .iconDecorationBuild {
+
+            background-position: @ICON_DECORATION_BUILD_X @ICON_DISABLED_Y;
+        }
+
+        .iconDecorationDemolish {
+
+            background-position: @ICON_DECORATION_DEMOLISH_X @ICON_DISABLED_Y;
+        }
+
+        .iconFullScreen {
+
+            background-position: @ICON_FULL_SCREEN_X @ICON_DISABLED_Y;
+        }
+    }
+
+    .gapSmall {
+
+        margin-left: @GAP_SMALL;
+    }
+
+    .gapLarge {
+
+        margin-left: @GAP_LARGE;
+    }
+
+    .button[data-name="fullScreen"] {
+
+        display: none;
+    }
+}
+
+//** desktop, full screen supported ************************************************************************************
+
+.toolbar.desktop.fullScreenSupported {
+
+    .horizontalCenter {
+
+        width: (@BUTTON_WIDTH_HEIGHT * 8 + @GAP_SMALL * 3 + @GAP_LARGE * 4);
+    }
+
+    .button[data-name="fullScreen"] {
+
+        display: block;
+    }
+}
+
+//** mobile ************************************************************************************************************
+.toolbar.mobile {
+
+    .horizontalCenter {
+
+        width: (@BUTTON_WIDTH_HEIGHT * 5 + @GAP_SMALL + @GAP_LARGE * 3);
+    }
+}

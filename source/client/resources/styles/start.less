@@ -1,0 +1,549 @@
+@TABLET_WIDTH: 768px;
+@TABLET_HEIGHT: 1024px;
+@SMARTPHONE_WIDTH: 540px;
+@SMARTPHONE_HEIGHT: 960px;
+@PARAGRAPH_HEIGHT: 19px;
+@SKY_COLOUR: #b5cde9;
+
+@SIGN_NORTH_SOUTH_WIDTH: 120px;
+@SIGN_NORTH_SOUTH_HEIGHT: 80px;
+@SIGN_EAST_WEST_WIDTH: 80px;
+@SIGN_EAST_WEST_HEIGHT: 120px;
+@SIGN_CORNERS_WIDTH_HEIGHT: 80px;
+@SIGN_CENTER_WIDTH_HEIGHT: 120px;
+@SIGN_CROWN_WIDTH: 584px;
+@SGIN_CROWN_HEIGHT: 92px;
+@TEXTBOX_EAST_WEST_WIDTH: 34px;
+@TEXTBOX_CENTER_WIDTH: 80px;
+@TEXTBOX_HEIGHT: 34px;
+@TEXTBOX_BORDER_NORTH_SOUTH_WIDTH: 2px;
+@TEXTBOX_BORDER_EAST_WEST_WIDTH: 5px;
+@TEXTBOX_GAP: 10px;
+@BUTTON_EAST_WEST_WIDTH: 37px;
+@BUTTON_CENTER_WIDTH: 80px;
+@BUTTON_HEIGHT: 38px;
+@BUTTON_GAP: 5px;
+@LOGO_WIDTH: 179px;
+@LOGO_HEIGHT: 120px;
+
+@DIALOG_SMALL_WIDTH: (@SIGN_CENTER_WIDTH_HEIGHT * 2 + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_SMALL_HEIGHT: (@SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_SMALL_SMARTPHONE_PORTRAIT_WIDTH: (@SIGN_CENTER_WIDTH_HEIGHT + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_SIGN_IN_WIDTH: (@SIGN_CENTER_WIDTH_HEIGHT * 5 + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_SIGN_IN_HEIGHT: (@SIGN_CENTER_WIDTH_HEIGHT + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_SIGN_IN_TABLET_WIDTH: (@SIGN_CENTER_WIDTH_HEIGHT * 4 + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_NEW_ACCOUNT_WIDTH: (@SIGN_CENTER_WIDTH_HEIGHT * 4 + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_NEW_ACCOUNT_HEIGHT: (@SIGN_CENTER_WIDTH_HEIGHT * 2 + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_NEW_ACCOUNT_SMARTPHONE_LANDSCAPE_HEIGHT: (@SIGN_CENTER_WIDTH_HEIGHT * 2 + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_WIDTH: (@SIGN_CENTER_WIDTH_HEIGHT + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_HEIGHT: (@SIGN_CENTER_WIDTH_HEIGHT * 2 + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_USEALBE_WIDTH: (@DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_WIDTH - (@SIGN_EAST_WEST_WIDTH - @TEXTBOX_EAST_WEST_WIDTH) * 2);
+@DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_LANDSCAPE_WIDTH: (@SIGN_CENTER_WIDTH_HEIGHT * 2 + @SIGN_CORNERS_WIDTH_HEIGHT * 2);
+@DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_LANDSCAPE_USEABLE_WIDTH: (@DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_LANDSCAPE_WIDTH - (@SIGN_EAST_WEST_WIDTH - @TEXTBOX_EAST_WEST_WIDTH) * 2);
+
+//** general ***********************************************************************************************************
+.start, .browserNotSupported {
+
+    background-image: url(../images/startScene/logo.png), url(../images/startScene/terrain.png), url(../images/startScene/sky.png);
+    background-position: 50% 7%, 50% 100%, 0;
+    background-size: 70%, 100%, contain;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-color: @SKY_COLOUR;
+
+    .dialogSmall {
+
+        width: @DIALOG_SMALL_WIDTH;
+        height: @DIALOG_SMALL_HEIGHT;
+
+        .layer > .horizontalVerticalCenter {
+
+            width: (@DIALOG_SMALL_WIDTH - @SIGN_CORNERS_WIDTH_HEIGHT);
+            height: @PARAGRAPH_HEIGHT;
+
+            p {
+
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-align: center;
+            }
+        }
+    }
+
+    .signBackground {
+
+        .crown, .northWest, .northEast, .southEast, .southWest, .north, .south, .east, .west, .center {
+
+            position: absolute;
+        }
+
+        .crown {
+
+            top: -@SGIN_CROWN_HEIGHT;
+            width: @SIGN_CROWN_WIDTH;
+            height: @SGIN_CROWN_HEIGHT;
+            background: url(../images/startScene/signParts.png);
+        }
+
+        .northWest, .northEast, .southEast, .southWest {
+
+            width: @SIGN_CORNERS_WIDTH_HEIGHT;
+            height: @SIGN_CORNERS_WIDTH_HEIGHT;
+            background: url(../images/startScene/signParts.png);
+        }
+
+        .northWest {
+
+            top: 0;
+            left: 0;
+            background-position: -@SIGN_CROWN_WIDTH 0;
+        }
+
+        .northEast {
+
+            top: 0;
+            right: 0;
+            background-position: -(@SIGN_CROWN_WIDTH + @SIGN_CORNERS_WIDTH_HEIGHT) 0;
+        }
+
+        .southEast {
+
+            bottom: 0;
+            right: 0;
+            background-position: -(@SIGN_CROWN_WIDTH + @SIGN_CORNERS_WIDTH_HEIGHT * 3) 0;
+        }
+
+        .southWest {
+
+            bottom: 0;
+            left: 0;
+            background-position: -(@SIGN_CROWN_WIDTH + @SIGN_CORNERS_WIDTH_HEIGHT * 2) 0;
+        }
+
+        .north, .south {
+
+            left: @SIGN_CORNERS_WIDTH_HEIGHT;
+            right: @SIGN_CORNERS_WIDTH_HEIGHT;
+            height: @SIGN_NORTH_SOUTH_HEIGHT;
+            background: url(../images/startScene/signNorthSouth.png);
+        }
+
+        .north {
+
+            top: 0;
+        }
+
+        .south {
+
+            bottom: 0;
+            background-position: 0 -@SIGN_NORTH_SOUTH_HEIGHT;
+        }
+
+        .east, .west {
+
+            top: @SIGN_CORNERS_WIDTH_HEIGHT;
+            bottom: @SIGN_CORNERS_WIDTH_HEIGHT;
+            width: @SIGN_EAST_WEST_WIDTH;
+            background: url(../images/startScene/signEastWest.png);
+        }
+
+        .east {
+
+            right: 0;
+            background-position: -@SIGN_EAST_WEST_WIDTH 0;
+        }
+
+        .west {
+
+            left: 0;
+        }
+
+        .center {
+
+            top: @SIGN_CORNERS_WIDTH_HEIGHT;
+            bottom: @SIGN_CORNERS_WIDTH_HEIGHT;
+            left: @SIGN_CORNERS_WIDTH_HEIGHT;
+            right: @SIGN_CORNERS_WIDTH_HEIGHT;
+            background: url(../images/startScene/signCenter.png);
+        }
+    }
+}
+
+.start {
+
+    .signInDialog {
+
+        width: @DIALOG_SIGN_IN_WIDTH;
+        height: @DIALOG_SIGN_IN_HEIGHT;
+
+        .layer > .horizontalVerticalCenter {
+
+            width: (@DIALOG_SIGN_IN_WIDTH - (@SIGN_EAST_WEST_WIDTH - @TEXTBOX_EAST_WEST_WIDTH) * 2);
+            height: ((@TEXTBOX_HEIGHT + @TEXTBOX_GAP) * 2 + @BUTTON_HEIGHT);
+
+            .logo {
+
+                display: none;
+                height: @LOGO_HEIGHT;
+                background: url(../images/startScene/logoSmartphone.png) 50% 0 no-repeat;
+            }
+        }
+    }
+
+    .newAccountDialog {
+
+        width: @DIALOG_NEW_ACCOUNT_WIDTH;
+        height: @DIALOG_NEW_ACCOUNT_HEIGHT;
+
+        .layer > .horizontalVerticalCenter {
+
+            width: (@DIALOG_NEW_ACCOUNT_WIDTH - (@SIGN_CORNERS_WIDTH_HEIGHT - @TEXTBOX_EAST_WEST_WIDTH) * 2);
+            height: ((@TEXTBOX_HEIGHT + @TEXTBOX_GAP) * 5 + @BUTTON_HEIGHT);
+        }
+    }
+
+    .loadingDialog {
+
+        .smoke_frame0, .smoke_frame1, .smoke_frame2, .smoke_frame3, .train {
+
+            position: absolute;
+        }
+
+        .smoke_frame0, .smoke_frame1, .smoke_frame2, .smoke_frame3 {
+
+            background-image: url(../images/startScene/smoke.png);
+            background-size: auto 100%;
+        }
+
+        .smoke_frame1 {
+
+            background-position: -100% 0;
+        }
+
+        .smoke_frame2 {
+
+            background-position: -200% 0;
+        }
+
+        .smoke_frame3 {
+
+            background-position: -300% 0;
+        }
+
+        .train {
+
+            background-image: url(../images/startScene/train.png);
+            background-size: 100%;
+        }
+
+        .layer > .horizontalVerticalCenter {
+
+            height: (@PARAGRAPH_HEIGHT * 3);
+
+        }
+    }
+
+    .loadingFailedDialog {
+
+        .layer > .horizontalVerticalCenter {
+
+            height: (@PARAGRAPH_HEIGHT * 3);
+        }
+    }
+
+    .big {
+
+        font-size: 200%;
+    }
+
+    .textbox {
+
+        position: relative;
+        height: @TEXTBOX_HEIGHT;
+        margin-bottom: @TEXTBOX_GAP;
+
+        .textboxBackground {
+
+            .east, .west, .center {
+
+                position: absolute;
+                top: 0;
+                height: 100%;
+            }
+
+            .east, .west {
+
+                width: @TEXTBOX_EAST_WEST_WIDTH;
+                background: url(../images/startScene/widgetsSides.png);
+            }
+
+            .east {
+
+                right: 0;
+                background-position: -@TEXTBOX_EAST_WEST_WIDTH 0;
+            }
+
+            .west {
+
+                left: 0;
+            }
+
+            .center {
+
+                left: @TEXTBOX_EAST_WEST_WIDTH;
+                right: @TEXTBOX_EAST_WEST_WIDTH;
+                background: url(../images/startScene/widgetsCenter.png);
+            }
+        }
+
+        .content {
+
+            position: absolute;
+            top: @TEXTBOX_BORDER_NORTH_SOUTH_WIDTH;
+            bottom: @TEXTBOX_BORDER_NORTH_SOUTH_WIDTH;
+            left: @TEXTBOX_BORDER_EAST_WEST_WIDTH;
+            right: @TEXTBOX_BORDER_EAST_WEST_WIDTH;
+            line-height: (@TEXTBOX_HEIGHT - @TEXTBOX_BORDER_NORTH_SOUTH_WIDTH * 2);
+
+            .partiallyVisible {
+
+                opacity: 0.5;
+            }
+
+            input {
+
+                display: block;
+            }
+        }
+    }
+
+    .button {
+
+        position: relative;
+        float: right;
+        width: (@BUTTON_EAST_WEST_WIDTH * 2 + @BUTTON_CENTER_WIDTH * 1.5);
+        height: @BUTTON_HEIGHT;
+        margin-left: @BUTTON_GAP;
+        cursor: pointer;
+
+        .buttonBackground {
+
+            .east, .west, .center {
+
+                position: absolute;
+                top: 0;
+                height: 100%;
+            }
+
+            .east, .west {
+
+                width: @BUTTON_EAST_WEST_WIDTH;
+                background: url(../images/startScene/widgetsSides.png);
+            }
+
+            .east {
+
+                right: 0;
+                background-position: -@BUTTON_EAST_WEST_WIDTH -@TEXTBOX_HEIGHT;
+            }
+
+            .west {
+
+                left: 0;
+                background-position: 0 -@TEXTBOX_HEIGHT;
+            }
+
+            .center {
+
+                left: @BUTTON_EAST_WEST_WIDTH;
+                right: @BUTTON_EAST_WEST_WIDTH;
+                background: url(../images/startScene/widgetsCenter.png) 0 -@TEXTBOX_HEIGHT;
+            }
+        }
+
+        p {
+
+            line-height: @BUTTON_HEIGHT;
+            text-align: center;
+        }
+    }
+
+    .button:last-child {
+
+        margin: 0;
+    }
+
+    .button:active {
+
+        .buttonBackground {
+
+            .east {
+
+                background-position: -@BUTTON_EAST_WEST_WIDTH -(@TEXTBOX_HEIGHT + @BUTTON_HEIGHT);
+            }
+
+            .west {
+
+                background-position: 0 -(@TEXTBOX_HEIGHT + @BUTTON_HEIGHT);
+            }
+
+            .center {
+
+                background-position: 0 -(@TEXTBOX_HEIGHT + @BUTTON_HEIGHT);
+            }
+        }
+    }
+}
+
+//** tablet ************************************************************************************************************
+@media (orientation: portrait) and (max-width: @TABLET_WIDTH), (orientation: landscape) and (max-width: @TABLET_HEIGHT) {
+
+    .start, .browserNotSupported {
+
+        background-image: url(../images/startScene/logoTablet.png), url(../images/startScene/terrainTablet.png), url(../images/startScene/skyTablet.png);
+
+        .signBackground {
+
+            .crown {
+
+                display: none;
+            }
+        }
+    }
+
+    .start {
+
+        .signInDialog {
+
+            width: @DIALOG_SIGN_IN_TABLET_WIDTH;
+
+            .layer > .horizontalVerticalCenter {
+
+                width: (@DIALOG_SIGN_IN_TABLET_WIDTH - (@SIGN_EAST_WEST_WIDTH - @TEXTBOX_EAST_WEST_WIDTH) * 2);
+            }
+        }
+
+        .loadingDialog {
+
+            .smoke_frame0, .smoke_frame1, .smoke_frame2, .smoke_frame3 {
+
+                background-image: url(../images/startScene/smokeTablet.png);
+            }
+
+            .train {
+
+                background-image: url(../images/startScene/trainTablet.png);
+            }
+        }
+    }
+}
+
+//** smartphone ********************************************************************************************************
+@media (orientation: portrait) and (max-width: @SMARTPHONE_WIDTH), (orientation: landscape) and (max-width: @SMARTPHONE_HEIGHT) {
+
+    .start, .browserNotSupported {
+
+        background: url(../images/startScene/skySmartphone.png) 0 repeat-x @SKY_COLOUR;
+        background-size: contain;
+    }
+
+    .start {
+
+        .loadingDialog {
+
+            .smoke_frame0, .smoke_frame1, .smoke_frame2, .smoke_frame3, .train {
+
+                background: transparent;
+            }
+        }
+    }
+}
+
+//** smartphone portrait ***********************************************************************************************
+@media (orientation: portrait) and (max-width: @SMARTPHONE_WIDTH) {
+
+    .start, .browserNotSupported {
+
+        .dialogSmall {
+
+            width: @DIALOG_SMALL_SMARTPHONE_PORTRAIT_WIDTH;
+
+            .layer > .horizontalVerticalCenter {
+
+                width: (@DIALOG_SMALL_SMARTPHONE_PORTRAIT_WIDTH - @SIGN_CORNERS_WIDTH_HEIGHT);
+            }
+        }
+    }
+
+    .start {
+
+        .signInDialog {
+
+            width: @DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_WIDTH;
+            height: @DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_HEIGHT;
+
+            .layer > .horizontalVerticalCenter {
+
+                width: @DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_USEALBE_WIDTH;
+                height: (@LOGO_HEIGHT + (@TEXTBOX_HEIGHT + @TEXTBOX_GAP) * 2 + @BUTTON_HEIGHT * 2 + @BUTTON_GAP);
+
+                .logo {
+
+                    display: block;
+                }
+            }
+        }
+
+        .newAccountDialog {
+
+            width: @DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_WIDTH;
+            height: @DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_HEIGHT;
+
+            .layer > .horizontalVerticalCenter {
+
+                width: @DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_USEALBE_WIDTH;
+                height: ((@TEXTBOX_HEIGHT + @TEXTBOX_GAP) * 5 + @BUTTON_HEIGHT * 2 + @BUTTON_GAP);
+            }
+        }
+
+        .button {
+
+            width: @DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_PORTRAIT_USEALBE_WIDTH;
+            margin-left: 0;
+            margin-bottom: @BUTTON_GAP;
+        }
+    }
+}
+
+//** smartphone landscape **********************************************************************************************
+@media (orientation: landscape) and (max-width: @SMARTPHONE_HEIGHT) {
+
+    .start {
+
+        .signInDialog {
+
+            width: @DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_LANDSCAPE_WIDTH;
+
+            .layer > .horizontalVerticalCenter {
+
+                width: (@DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_LANDSCAPE_WIDTH - (@SIGN_EAST_WEST_WIDTH - @TEXTBOX_EAST_WEST_WIDTH) * 2);
+            }
+        }
+
+        .newAccountDialog {
+
+            width: @DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_LANDSCAPE_WIDTH;
+            height: @DIALOG_NEW_ACCOUNT_SMARTPHONE_LANDSCAPE_HEIGHT;
+
+            .layer > .horizontalVerticalCenter {
+
+                width: @DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_LANDSCAPE_USEABLE_WIDTH;
+            }
+        }
+
+        .button {
+
+            width: floor((@DIALOG_SIGN_IN_NEW_ACCOUNT_SMARTPHONE_LANDSCAPE_USEABLE_WIDTH - @BUTTON_GAP) / 2);
+        }
+    }
+}

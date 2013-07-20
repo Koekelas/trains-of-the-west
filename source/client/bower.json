@@ -1,0 +1,13 @@
+{
+
+    "name": "totw-client",
+    "version": "0.0.1",
+    "author": "Nicolas De Jaeghere",
+    "description": "Trains of the West Client",
+    "main": "resources/scripts/client/app.js",
+
+    "devDependencies": {
+
+        "requirejs-i18n": "~2.0"
+    }
+}

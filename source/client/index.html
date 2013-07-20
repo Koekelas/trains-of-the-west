@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<!--
+Trains Of The West Copyright (c) 2012-2013 by Bart Coppens (art) and Nicolas De Jaeghere (code), All Rights Reserved.
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
+        <title>Trains of the West</title>
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="resources/images/appIcons/57x57.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/images/appIcons/72x72.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/images/appIcons/114x114.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resources/images/appIcons/144x144.png" />
+        <link rel="apple-touch-startup-image" media="(device-height: 480px) and (orientation: portrait)" href="resources/images/splashScreens/320x480Portrait.png" />
+        <link rel="apple-touch-startup-image" media="(device-height: 480px) and (orientation: landscape)" href="resources/images/splashScreens/320x480Landscape.png" />
+        <link rel="apple-touch-startup-image" media="(device-height: 480px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="resources/images/splashScreens/640x960Portrait.png" />
+        <link rel="apple-touch-startup-image" media="(device-height: 480px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="resources/images/splashScreens/640x960Landscape.png" />
+        <link rel="apple-touch-startup-image" media="(device-height: 568px) and (orientation: portrait)" href="resources/images/splashScreens/640x1136Portrait.png" />
+        <link rel="apple-touch-startup-image" media="(device-height: 568px) and (orientation: landscape)" href="resources/images/splashScreens/640x1136Landscape.png" />
+        <link rel="apple-touch-startup-image" media="(device-height: 1024px) and (orientation: portrait)" href="resources/images/splashScreens/768x1004Portrait.png" />
+        <link rel="apple-touch-startup-image" media="(device-height: 1024px) and (orientation: landscape)" href="resources/images/splashScreens/1024x748Landscape.png" />
+        <link rel="apple-touch-startup-image" media="(device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="resources/images/splashScreens/1536x2008Portrait.png" />
+        <link rel="apple-touch-startup-image" media="(device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="resources/images/splashScreens/2048x1496Landscape.png" />
+        <link rel="shortcut icon" href="resources/images/favicon.png" type="image/png" />
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Bitter" />
+        <link rel="stylesheet" href="resources/styles/shared.css" />
+    </head>
+    <body>
+        <script type="text/javascript">
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-37274248-2', 'totw-nicodeja.rhcloud.com');
+            ga('send', 'pageview');
+        </script>
+        <script type="text/javascript">
+
+            var require = {
+
+                paths: {
+
+                    sockjs: "//cdnjs.cloudflare.com/ajax/libs/sockjs-client/0.3.4/sockjs.min",
+                    jquery: "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min",
+                    hammer: "//cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.5/hammer.min",
+                    hammerJquery: "../libraries/jquery.hammer",
+                    handlebars: "//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.runtime.min",
+                    i18n: "../libraries/bower/requirejs-i18n/i18n",
+                    templates: "../../templates",
+                    spriteSheets: "../../images/spriteSheets"
+                },
+
+                shim: {
+
+                    sockjs: {
+
+                        exports: "SockJS"
+                    },
+
+                    handlebars: {
+
+                        exports: "Handlebars"
+                    }
+                }
+            };
+        </script>
+        <!--RequireJS and Raphaël don't like each other, don't load Raphaël using RequireJS!-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.8/require.min.js" data-main="resources/scripts/client/app.js"></script>
+    </body>
+</html>

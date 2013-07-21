@@ -32,7 +32,7 @@ var config = function config(grunt) {
                     expand: true,
                     cwd: "<%= SOURCE_SERVER_PATH %>",
                     dot: true,
-                    src: [ "**", "!.idea/**", "!node_modules/**" ],
+                    src: [ "**", "!.idea/**", "!node_modules/**", "!.gitignore" ],
                     dest: "<%= BUILD_SERVER_PATH %>"
                 }
             };
@@ -91,7 +91,7 @@ var config = function config(grunt) {
                         appDir: "<%= SOURCE_CLIENT_PATH %>",
                         dir: "<%= BUILD_CLIENT_PATH %>",
                         baseUrl: "resources/scripts/client/",
-                        fileExclusionRegExp: /^\.idea$|^\.bowerrc$|^bower\.json$|^README\.md$|\.less$|\.hbs$/, //is matched against a file- or folder-name, not against a path
+                        fileExclusionRegExp: /^\.gitignore$|^\.idea$|^\.bowerrc$|^bower\.json$|^README\.md$|\.less$|\.hbs$/, //is matched against a file- or folder-name, not against a path
 
                         paths: {
 

@@ -285,8 +285,7 @@ var directions = require("../game/constants").directions,
 
                 var getAffectedTileDescsModeImplementation,
                     potentiallyAffectedTileDescs = createTileDescsByGridPoint(tile, corner, modifyTileDescs),
-                    referenceTileDesc = potentiallyAffectedTileDescs.get(relations.REFERENCE),
-                    referenceHeight = referenceTileDesc.tileHeights.get(referenceTileDesc.corner);
+                    referenceTileDesc = potentiallyAffectedTileDescs.get(relations.REFERENCE);
 
                 if (modifier === modifyTerrainModifiers.SMOOTH) {
 
@@ -308,7 +307,11 @@ var directions = require("../game/constants").directions,
                     }
                 }
 
-                return getAffectedTileDescsModeImplementation(referenceHeight, potentiallyAffectedTileDescs);
+                return getAffectedTileDescsModeImplementation(
+
+                    referenceTileDesc.tileHeights.get(referenceTileDesc.corner),
+                    potentiallyAffectedTileDescs
+                );
             },
 
             createNewTileHeightsDesc = function createNewTileHeightsDesc(tileDesc, up) {

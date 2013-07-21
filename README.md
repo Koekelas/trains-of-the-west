@@ -15,7 +15,7 @@ Once Node.js is installed, change to this directory and use npm to install Bower
 
 ### Usage
 
-Change to this directory, or any directory inside of it, and run:
+Change to this directory, or any child directory, and run:
 
     $ grunt [task[:target] [task[:target] ...]]
 
@@ -55,7 +55,7 @@ Equivalent to clean:handlebars handlebars:build.
 
 *build*
 
-Clean build directory.
+Clean the build directory.
 
 *less*
 
@@ -74,7 +74,7 @@ Clean all build handlebars templates.
     $ grunt clean
 
     # Clean task, handlebars target
-    $ grunt  clean:handlebars
+    $ grunt clean:handlebars
 
     # Clean task, handlebars target followed by handlebars task, build target
     $ grunt clean:handlebars handlebars:build

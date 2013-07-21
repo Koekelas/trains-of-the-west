@@ -49,9 +49,11 @@ define(function (require) {
                     try {
 
                         data = JSON.parse(data);
-                        message = {};
-                        message.type = data[messageKeys.TYPE];
-                        message.data = data[messageKeys.DATA];
+                        message = {
+
+                            type: data[messageKeys.TYPE],
+                            data: data[messageKeys.DATA]
+                        };
                     } catch (exception) {
 
                         logger.logError("message is ill-formed");
@@ -80,7 +82,7 @@ define(function (require) {
 
                             var message = getMessage(event.data);
 
-                            if (message) {
+                            if (message && message.type !== undefined) {
 
                                 super_trigger(message.type, message.data);
                             }

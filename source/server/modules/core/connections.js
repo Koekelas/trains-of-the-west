@@ -58,9 +58,11 @@ var messageKeys = require("../game/constants").messageKeys,
                 try {
 
                     data = JSON.parse(data);
-                    message = {};
-                    message.type = data[messageKeys.TYPE];
-                    message.data = data[messageKeys.DATA];
+                    message = {
+
+                        type: data[messageKeys.TYPE],
+                        data: data[messageKeys.DATA]
+                    };
                 } catch (exception) {
 
                     logger.logError("message is ill-formed");
@@ -79,7 +81,7 @@ var messageKeys = require("../game/constants").messageKeys,
 
                         var message = getMessage(data);
 
-                        if (message) {
+                        if (message && message.type !== undefined) {
 
                             super_trigger(message.type, message.data, connection.id);
                         }

@@ -14,18 +14,21 @@ define(function (require) {
 
             update: function update(x, y, layer, cameraRotation) {
 
-                var activeTracksSpriteSheet = terrain.getActiveTracksSpriteSheet();
+                var spriteSheet = terrain.getActiveTracksSpriteSheet();
 
                 if (!this._element) {
 
                     this._element = elementPool.acquireElement();
                 }
 
-                this._element.setCssClass(activeTracksSpriteSheet.getCssClass(this._spriteSheetCell));
+                this._element.setCssClass(
+
+                    spriteSheet.getCssClass(spriteSheet.getMetadata(this._spriteSheetCell, "rotations")[cameraRotation])
+                );
                 this._element.setPosition(
 
                     x,
-                    y + Math.floor(terrain.getActiveTerrainSpriteSheet().getCellHeight() / 3) - activeTracksSpriteSheet.getCellHeight()
+                    y + Math.floor(terrain.getActiveTerrainSpriteSheet().getCellHeight() / 3) - spriteSheet.getCellHeight()
                 );
                 this._element.setLayer(layer);
                 ++layer;

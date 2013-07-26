@@ -47,7 +47,7 @@ define(function (require) {
                 this.removeTileEntity("decorations");
             }
 
-            trck = track(terrain, spriteSheetCell);
+            trck = track(terrain, this, spriteSheetCell);
             this._tileEntities.set("track", trck);
         } else {
 

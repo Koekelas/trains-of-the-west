@@ -10,7 +10,7 @@ define(function (require) {
 
         PATH = "resources/images/spriteSheets/tracks{{scaleFactor}}x.png",
 
-        createCellDesc = function createCellDesc(rotationNorth, rotationEast, rotationSouth, rotationWest) {
+        createCellDesc = function createCellDesc(rotationNorth, rotationEast, rotationSouth, rotationWest, emptyCorner) {
 
             var rotations = {};
 
@@ -19,41 +19,41 @@ define(function (require) {
             rotations[directions.SOUTH] = rotationSouth;
             rotations[directions.WEST] = rotationWest;
 
-            return { rotations: rotations };
+            return { rotations: rotations, emptyCorner: emptyCorner };
         },
 
         metadata = {
 
-            0: createCellDesc(0, 1, 0, 1),
-            1: createCellDesc(1, 0, 1, 0),
+            0: createCellDesc(0, 1, 0, 1, undefined),
+            1: createCellDesc(1, 0, 1, 0, undefined),
 
-            2: createCellDesc(2, 3, 2, 3),
-            3: createCellDesc(3, 2, 3, 2),
+            2: createCellDesc(2, 3, 2, 3, undefined),
+            3: createCellDesc(3, 2, 3, 2, undefined),
 
-            4: createCellDesc(4, 5, 6, 7),
-            5: createCellDesc(5, 6, 7, 4),
-            6: createCellDesc(6, 7, 4, 5),
-            7: createCellDesc(7, 4, 5, 6),
+            4: createCellDesc(4, 5, 6, 7, undefined),
+            5: createCellDesc(5, 6, 7, 4, undefined),
+            6: createCellDesc(6, 7, 4, 5, undefined),
+            7: createCellDesc(7, 4, 5, 6, undefined),
 
-            8: createCellDesc(8, 9, 10, 11),
-            9: createCellDesc(9, 10, 11, 8),
-            10: createCellDesc(10, 11, 8, 9),
-            11: createCellDesc(11, 8, 9, 10),
+            8: createCellDesc(8, 9, 10, 11, undefined),
+            9: createCellDesc(9, 10, 11, 8, undefined),
+            10: createCellDesc(10, 11, 8, 9, undefined),
+            11: createCellDesc(11, 8, 9, 10, undefined),
 
-            12: createCellDesc(12, 13, 14, 15),
-            13: createCellDesc(13, 14, 15, 12),
-            14: createCellDesc(14, 15, 12, 13),
-            15: createCellDesc(15, 12, 13, 14),
+            12: createCellDesc(12, 13, 14, 15, directions.NORTH),
+            13: createCellDesc(13, 14, 15, 12, directions.EAST),
+            14: createCellDesc(14, 15, 12, 13, directions.SOUTH),
+            15: createCellDesc(15, 12, 13, 14, directions.WEST),
 
-            16: createCellDesc(16, 17, 18, 19),
-            17: createCellDesc(17, 18, 19, 16),
-            18: createCellDesc(18, 19, 16, 17),
-            19: createCellDesc(19, 16, 17, 18),
+            16: createCellDesc(16, 17, 18, 19, directions.SOUTH),
+            17: createCellDesc(17, 18, 19, 16, directions.WEST),
+            18: createCellDesc(18, 19, 16, 17, directions.NORTH),
+            19: createCellDesc(19, 16, 17, 18, directions.EAST),
 
-            20: createCellDesc(20, 21, 22, 23),
-            21: createCellDesc(21, 22, 23, 20),
-            22: createCellDesc(22, 23, 20, 21),
-            23: createCellDesc(23, 20, 21, 22)
+            20: createCellDesc(20, 21, 22, 23, directions.EAST),
+            21: createCellDesc(21, 22, 23, 20, directions.SOUTH),
+            22: createCellDesc(22, 23, 20, 21, directions.WEST),
+            23: createCellDesc(23, 20, 21, 22, directions.NORTH)
         },
         tracksDescs = {};
 

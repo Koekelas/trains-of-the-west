@@ -57,18 +57,18 @@ define(function (require) {
                             halfSurfaceHeight + (cellHeightLevels.MAXIMUM - spriteSheetCellHeights[directions.WEST]) * oneHeigh - 1
                         );
 
-                        //exceptions to above rules
+                        //exceptions to the above rules
                         switch (spriteSheetCell) {
 
                         case 1:
 
-                            ++corners[directions.SOUTH].y; //dirt causes surface to be on the back
+                            ++corners[directions.SOUTH].y; //dirt causes surface to face the back
 
                             break;
                         case 5:
 
-                            ++corners[directions.NORTH].y; //dirt at east, south and west cause fold to be on the back
-                            ++corners[directions.SOUTH].y; //dirt causes surface to be on the back
+                            ++corners[directions.NORTH].y; //dirt at east, south and west cause fold to face the back
+                            ++corners[directions.SOUTH].y; //dirt causes surface to face the back
 
                             break;
                         }

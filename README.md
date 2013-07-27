@@ -25,7 +25,7 @@ When no task is specified, the default task (rebuild) is run.
 
 **build**
 
-Generates an optimised build for deployment on OpenShift.
+Generate an optimised build for deployment on OpenShift. After running this task, the optimised build can be found in ./build.
 
 **rebuild**
 
@@ -51,6 +51,12 @@ Build all handlebars templates.
 
 Equivalent to clean:handlebars handlebars:build.
 
+**yuidoc**
+
+*build*
+
+Build the documentation. After running this task, the documentation can be found in ./documentation.
+
 **clean**
 
 *build*
@@ -64,6 +70,10 @@ Clean all build LESS style sheets.
 *handlebars*
 
 Clean all build handlebars templates.
+
+*yuidoc*
+
+Clean the documentation directory.
 
 ### Examples
 

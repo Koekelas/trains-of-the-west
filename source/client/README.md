@@ -10,7 +10,7 @@ Change to this directory and use Bower to install all dependencies:
 
 ### General
 
-*   Write documentation;
+*   Write documentation (work in progress);
 *   [Add support for HiPPI-devices][HiPPI-device support] (the only place that I can think of that will require tweaking is generateOpacityMap() in core/image.js).
 
 ### Architecture

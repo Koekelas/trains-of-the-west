@@ -5,6 +5,11 @@
 /*jslint browser: true, plusplus: true*/
 /*global define*/
 
+/**
+ * The Trains of the West client.
+ *
+ * @module client
+ */
 define(function (require) {
 
     "use strict";
@@ -13,9 +18,30 @@ define(function (require) {
         client = require("core/client"),
         browser = require("support/browser"),
 
+        /**
+         * Responsible for bootstrapping the client.
+         *
+         * @class app
+         * @static
+         */
         app = function app() {
 
-            var main = function main() {
+                /**
+                 * The instance.
+                 *
+                 * @property instance
+                 * @type Object
+                 * @private
+                 */
+            var instance = {},
+
+                /**
+                 * Checks if the browser is capable of running the client. If it is, it instantiates the client. If it isn't, it renders an error message.
+                 *
+                 * @method main
+                 * @private
+                 */
+                main = function main() {
 
                     if (browser.isSupported()) {
 
@@ -29,6 +55,12 @@ define(function (require) {
                     }
                 },
 
+                /**
+                 * Registers the listeners.
+                 *
+                 * @method addListeners
+                 * @private
+                 */
                 addListeners = function addListeners() {
 
                     jquery(document).ready(function onReady() {
@@ -37,13 +69,22 @@ define(function (require) {
                     });
                 },
 
+                /**
+                 * Initialises the instance.
+                 *
+                 * @method initialise
+                 * @private
+                 */
                 initialise = function initialise() {
 
                     addListeners();
                 };
 
             initialise();
+
+            return instance;
         };
 
     return app();
+
 });

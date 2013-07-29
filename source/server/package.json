@@ -3,7 +3,7 @@
     "name": "totw-server",
     "version": "0.0.1",
     "author": "Nicolas De Jaeghere",
-    "description": "Trains of the West Server",
+    "description": "Trains of the West server",
     "main": "server.js",
 
     "engines": {

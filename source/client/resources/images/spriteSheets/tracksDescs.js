@@ -27,33 +27,30 @@ define(function (require) {
             0: createCellDesc(0, 1, 0, 1, undefined),
             1: createCellDesc(1, 0, 1, 0, undefined),
 
-            2: createCellDesc(2, 3, 2, 3, undefined),
-            3: createCellDesc(3, 2, 3, 2, undefined),
+            2: createCellDesc(2, 3, 4, 5, undefined),
+            3: createCellDesc(3, 4, 5, 2, undefined),
+            4: createCellDesc(4, 5, 2, 3, undefined),
+            5: createCellDesc(5, 2, 3, 4, undefined),
 
-            4: createCellDesc(4, 5, 6, 7, undefined),
-            5: createCellDesc(5, 6, 7, 4, undefined),
-            6: createCellDesc(6, 7, 4, 5, undefined),
-            7: createCellDesc(7, 4, 5, 6, undefined),
+            6: createCellDesc(6, 7, 8, 9, undefined),
+            7: createCellDesc(7, 8, 9, 6, undefined),
+            8: createCellDesc(8, 9, 6, 7, undefined),
+            9: createCellDesc(9, 6, 7, 8, undefined),
 
-            8: createCellDesc(8, 9, 10, 11, undefined),
-            9: createCellDesc(9, 10, 11, 8, undefined),
-            10: createCellDesc(10, 11, 8, 9, undefined),
-            11: createCellDesc(11, 8, 9, 10, undefined),
+            10: createCellDesc(10, 11, 12, 13, directions.WEST),
+            11: createCellDesc(11, 12, 13, 10, directions.NORTH),
+            12: createCellDesc(12, 13, 10, 11, directions.EAST),
+            13: createCellDesc(13, 10, 11, 12, directions.SOUTH),
 
-            12: createCellDesc(12, 13, 14, 15, directions.NORTH),
-            13: createCellDesc(13, 14, 15, 12, directions.EAST),
-            14: createCellDesc(14, 15, 12, 13, directions.SOUTH),
-            15: createCellDesc(15, 12, 13, 14, directions.WEST),
+            14: createCellDesc(14, 15, 16, 17, directions.EAST),
+            15: createCellDesc(15, 16, 17, 14, directions.SOUTH),
+            16: createCellDesc(16, 17, 14, 15, directions.WEST),
+            17: createCellDesc(17, 14, 15, 16, directions.NORTH),
 
-            16: createCellDesc(16, 17, 18, 19, directions.SOUTH),
-            17: createCellDesc(17, 18, 19, 16, directions.WEST),
-            18: createCellDesc(18, 19, 16, 17, directions.NORTH),
-            19: createCellDesc(19, 16, 17, 18, directions.EAST),
-
-            20: createCellDesc(20, 21, 22, 23, directions.EAST),
-            21: createCellDesc(21, 22, 23, 20, directions.SOUTH),
-            22: createCellDesc(22, 23, 20, 21, directions.WEST),
-            23: createCellDesc(23, 20, 21, 22, directions.NORTH)
+            18: createCellDesc(18, 19, 20, 21, directions.NORTH),
+            19: createCellDesc(19, 20, 21, 18, directions.EAST),
+            20: createCellDesc(20, 21, 18, 19, directions.SOUTH),
+            21: createCellDesc(21, 18, 19, 20, directions.WEST)
         },
         tracksDescs = {};
 

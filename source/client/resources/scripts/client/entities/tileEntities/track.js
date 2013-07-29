@@ -65,7 +65,7 @@ define(function (require) {
                 //this._spriteSheetCell = spriteSheetCell;
 
                 //tmp
-                this._spriteSheetCell = this._spriteSheetCell !== undefined ? (this._spriteSheetCell + 1) % terrain.getTracksDataStore().getNumberOfCells() : spriteSheetCell;
+                this._spriteSheetCell = this._spriteSheetCell !== undefined ? (this._spriteSheetCell + 1) % (terrain.getTracksDataStore().getNumberOfCells() - 2) : spriteSheetCell;
             },
 
             initialise: function initialise(tile, spriteSheetCell) {

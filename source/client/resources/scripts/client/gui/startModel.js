@@ -7,13 +7,6 @@ define(function (require) {
 
     var listenable = require("support/listenable"),
         connection = require("core/connection"),
-        elementPool = require("core/elementPool"),
-        layerManager = require("core/layerManager"),
-        overlay = require("core/overlay"),
-        resourceManager = require("core/resourceManager"),
-        viewport = require("core/viewport"),
-        mouse = require("input/mouse"),
-        keyboard = require("input/keyboard"),
         gameScene = require("scenes/gameScene"),
 
         startModel = function startModel(client) {
@@ -100,19 +93,6 @@ define(function (require) {
                     return !gameScn ? 0 : gameScn.getPercentageComplete();
                 },
 
-                wipeSlateClean = function wipeSlateClean() {
-
-                    client.wipeSlateClean();
-                    connection.off();
-                    viewport.off();
-                    mouse.off();
-                    resourceManager.reset();
-                    overlay.reset();
-                    elementPool.reset(); //after mouse.off()!
-                    layerManager.reset();
-                    keyboard.reset();
-                },
-
                 addListeners = function addListeners() {
 
                     if (!connection.isOpen()) {
@@ -125,7 +105,7 @@ define(function (require) {
 
                 initialise = function initialise() {
 
-                    wipeSlateClean();
+                    client.wipeSlateClean();
                     addListeners();
 
                     if (!connection.isOpen()) {

@@ -186,7 +186,8 @@ var config = function config(grunt) {
 
                         paths: "<%= SOURCE_PATH %>",
                         outdir: "<%= DOCUMENTATION_PATH %>",
-                        exclude: ".idea,libraries,node_modules" //is matched against a file- or folder-name, not against a path
+                        exclude: ".idea,libraries,node_modules", //is matched against a file- or folder-name, not against a path
+                        linkNatives: true
                     }
                 }
             };

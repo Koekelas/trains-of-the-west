@@ -35,6 +35,7 @@ define(function (require) {
                  */
             var instance = {},
 
+
                 /**
                  * Checks if the browser is capable of running the client. If it is, it instantiates the client. If it isn't, it renders an error message.
                  *
@@ -56,7 +57,7 @@ define(function (require) {
                 },
 
                 /**
-                 * Registers the listeners.
+                 * Adds the listeners.
                  *
                  * @method addListeners
                  * @private

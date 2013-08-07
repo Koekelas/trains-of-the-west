@@ -9,6 +9,7 @@
  * The Trains of the West client.
  *
  * @module client
+ * @namespace client
  */
 define(function (require) {
 

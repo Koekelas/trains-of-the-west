@@ -120,7 +120,7 @@ define(function (require) {
                     var toolbar = gameScene.getEntity("toolbar"),
                         modifyImplementation;
 
-                    event.stopPropagation();
+                    event.stopImmediatePropagation();
 
                     if (toolbar.isTerrainToolSelected()) {
 

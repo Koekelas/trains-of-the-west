@@ -28,7 +28,7 @@ define(function (require) {
                 terrain = trrn;
             }
 
-            return pocketKnife.create(prototype).initialise(row, column, spriteSheetCell, height);
+            return pocketKnife.create(prototype)._initialise(row, column, spriteSheetCell, height);
         };
 
     prototype.removeTileEntity = function removeTileEntity(name) {
@@ -130,7 +130,7 @@ define(function (require) {
 
                 if (this.trigger("click", { x: mouse.x - elementX, y: mouse.y - elementY }) === false) {
 
-                    event.stopPropagation();
+                    event.stopImmediatePropagation();
                 }
             }
         }
@@ -213,11 +213,9 @@ define(function (require) {
         return this._hash;
     };
 
-    prototype._super_initialise = prototype.initialise;
+    prototype._initialise = function _initialise(row, column, spriteSheetCell, height) {
 
-    prototype.initialise = function initialise(row, column, spriteSheetCell, height) {
-
-        this._super_initialise();
+        this.superior("_initialise")();
         this._location = { row: row, column: column };
         this._tileEntities = map();
         this._hash = (chunkDimensions.COLUMNS * terrainDimensions.COLUMNS * row + column).toString();

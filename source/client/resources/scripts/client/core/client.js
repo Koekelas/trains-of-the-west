@@ -5,6 +5,7 @@
  * A collection of classes that form the core of every game.
  *
  * @module client/core
+ * @namespace client.core
  */
 define(function (require) {
 
@@ -39,7 +40,7 @@ define(function (require) {
             var time = function time() {
 
                         /**
-                         * The time in milliseconds when {{#crossLink "time/getDeltaTime:method"}}{{/crossLink}} was last called.
+                         * The time in milliseconds when {{#crossLink "client.core.time/getDeltaTime:method"}}{{/crossLink}} was last called.
                          *
                          * @property previousNow
                          * @type Number
@@ -83,7 +84,7 @@ define(function (require) {
                  * The time instance.
                  *
                  * @property tm
-                 * @type time
+                 * @type client.core.time
                  * @private
                  * @for client
                  */
@@ -149,10 +150,10 @@ define(function (require) {
                  *
                  * @method setScene
                  * @param {Object} scn The new active scene.
-                 *  @param {Function} scn.update Is called each frame.
-                 *   @param {Number} scn.update.deltaTime The time elapsed in seconds since the previous frame started rendering.
-                 *  @param {Function} [scn.activate] Is called when `scn` becomes the active scene before `update` is called for the first time.
-                 *  @param {Function} [scn.deactivate] Is called when `scn` stops being the active scene after `update` is called for the last time.
+                 *   @param {Function} scn.update The function to call each frame.
+                 *     @param {Number} scn.update.deltaTime The time elapsed in seconds since the previous frame started rendering.
+                 *   @param {Function} [scn.activate] The function to call when `scn` becomes the active scene before `update` is called for the first time.
+                 *   @param {Function} [scn.deactivate] The function to call when `scn` stops being the active scene after `update` is called for the last time.
                  */
                 setScene = function setScene(scn) {
 

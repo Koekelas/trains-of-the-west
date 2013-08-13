@@ -55,7 +55,7 @@ define(function (require) {
         }
     };
 
-    prototype.createHighlight = function addHghlght() {
+    prototype.createHighlight = function createHighlight() {
 
         if (!this._tileEntities.get("highlight")) {
 
@@ -82,10 +82,10 @@ define(function (require) {
 
         if (large) {
 
-            dcrtns.addLarge(location, spriteSheetCell);
+            dcrtns.createLarge(location, spriteSheetCell);
         } else {
 
-            dcrtns.addSmall(location, spriteSheetCell);
+            dcrtns.createSmall(location, spriteSheetCell);
         }
     };
 
@@ -138,6 +138,8 @@ define(function (require) {
 
     prototype.update = function update(x, y, layer, cameraRotation) {
 
+        var numberOfLayersAcquired = 0;
+
         if (!this.hasAcquiredElements()) {
 
             this._element = elementPool.acquireElement();
@@ -150,13 +152,13 @@ define(function (require) {
         );
         this._element.setPosition(x, y);
         this._element.setLayer(layer);
-        ++layer;
+        ++numberOfLayersAcquired;
         this._tileEntities.each(function eachTileEntity(tileEntity) {
 
-            layer = tileEntity.update(x, y, layer, cameraRotation);
+            numberOfLayersAcquired += tileEntity.update(x, y, layer + numberOfLayersAcquired, cameraRotation);
         });
 
-        return layer;
+        return numberOfLayersAcquired;
     };
 
     prototype.releaseElements = function releaseElements() {

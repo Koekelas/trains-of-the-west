@@ -9,6 +9,8 @@ define(function (require) {
         elementPool = require("core/elementPool"),
         pocketKnife = require("support/pocketKnife"),
 
+        NUMBER_OF_LAYERS_ACQUIRED = 1,
+
         terrain,
 
         prototype = {
@@ -48,9 +50,8 @@ define(function (require) {
                 this._element.setCssClass(spriteSheet.getCssClass(this._getMetadata("rotations")[cameraRotation]));
                 this._element.setPosition(x, y + surfaceY - spriteSheet.getCellHeight());
                 this._element.setLayer(layer);
-                ++layer;
 
-                return layer;
+                return NUMBER_OF_LAYERS_ACQUIRED;
             },
 
             releaseElements: function releaseElements() {

@@ -6,6 +6,7 @@ define(function (require) {
     "use strict";
 
     var directions = require("game/constants").directions,
+        decorationLocations = require("game/constants").decorationLocations,
         map = require("support/map"),
         math = require("support/math"),
         rotationWalker = require("game/rotationWalker"),
@@ -112,7 +113,8 @@ define(function (require) {
 
                 modifyDecoration = function modifyDecoration(tile, toolbar, mouse) {
 
-                    //todo
+                    //tmp
+                    tile.createDecorationSmall(Math.floor(Math.random() * 16), 0);
                 },
 
                 onClick = function onClick(event, mouse) {

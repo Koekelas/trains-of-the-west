@@ -126,12 +126,12 @@ define(function (require) {
 
                             if (tile) {
 
-                                x = (column - row) * halfSurfaceWidth + xOffset;
-                                y = (row + column - tile.getHeight()) * halfSurfaceHeight + yOffset;
+                                x = xOffset + (column - row) * halfSurfaceWidth;
+                                y = yOffset + (row + column - tile.getHeight()) * halfSurfaceHeight;
 
                                 if (isVisible(x, y, spriteSheetCellWidth, spriteSheetCellHeight, viewportWidth, viewportHeight)) {
 
-                                    layer = tile.update(x, y, layer, cameraRotation);
+                                    layer += tile.update(x, y, layer, cameraRotation);
                                     updatedTiles.set(tile, tile);
                                 }
                             }

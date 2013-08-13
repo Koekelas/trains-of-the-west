@@ -12,6 +12,7 @@ define(function (require) {
 
         NUMBER_OF_ELEMENTS_OUTLINE = 2, //topPath and bottomPath
         NUMBER_OF_ANIMATION_CYCLES = 5,
+        NUMBER_OF_LAYERS_ACQUIRED = 0,
 
         prototype = {
 
@@ -89,11 +90,11 @@ define(function (require) {
                 }
             },
 
-            update: function update(x, y, layer) {
+            update: function update(x, y) {
 
                 this._updateElements(x, y);
 
-                return layer;
+                return NUMBER_OF_LAYERS_ACQUIRED;
             },
 
             _hide: function _hide() {

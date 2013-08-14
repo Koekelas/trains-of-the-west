@@ -1,5 +1,5 @@
 /**
- * @license Trains Of The West Copyright (c) 2012-2013 by Bart Coppens (art) and Nicolas De Jaeghere (code), All Rights Reserved.
+ * @license Trains of the West Copyright (c) 2012-2013 by Bart Coppens (art) and Nicolas De Jaeghere (code), All Rights Reserved.
  */
 
 /*jslint browser: true, plusplus: true*/

@@ -326,6 +326,32 @@
         margin-left: @BUTTON_GAP;
         cursor: pointer;
 
+        &:last-child {
+
+            margin: 0;
+        }
+
+        &:active {
+
+            .buttonBackground {
+
+                .east {
+
+                    background-position: -@BUTTON_EAST_WEST_WIDTH -(@TEXTBOX_HEIGHT + @BUTTON_HEIGHT);
+                }
+
+                .west {
+
+                    background-position: 0 -(@TEXTBOX_HEIGHT + @BUTTON_HEIGHT);
+                }
+
+                .center {
+
+                    background-position: 0 -(@TEXTBOX_HEIGHT + @BUTTON_HEIGHT);
+                }
+            }
+        }
+
         .buttonBackground {
 
             .east, .west, .center {
@@ -365,32 +391,6 @@
 
             line-height: @BUTTON_HEIGHT;
             text-align: center;
-        }
-    }
-
-    .button:last-child {
-
-        margin: 0;
-    }
-
-    .button:active {
-
-        .buttonBackground {
-
-            .east {
-
-                background-position: -@BUTTON_EAST_WEST_WIDTH -(@TEXTBOX_HEIGHT + @BUTTON_HEIGHT);
-            }
-
-            .west {
-
-                background-position: 0 -(@TEXTBOX_HEIGHT + @BUTTON_HEIGHT);
-            }
-
-            .center {
-
-                background-position: 0 -(@TEXTBOX_HEIGHT + @BUTTON_HEIGHT);
-            }
         }
     }
 }

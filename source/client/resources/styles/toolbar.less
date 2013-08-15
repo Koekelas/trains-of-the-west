@@ -50,6 +50,11 @@
         background: url(../images/toolbar/widgets.png);
         cursor: pointer;
 
+        &:active {
+
+            background-position: 0 -@BUTTON_WIDTH_HEIGHT;
+        }
+
         .modes {
 
             position: absolute;
@@ -65,11 +70,11 @@
 
                 height: @BUTTON_WIDTH_HEIGHT;
                 background: url(../images/toolbar/widgets.png) 0 -(@BUTTON_WIDTH_HEIGHT * 4);
-            }
 
-            .calloutButton:active {
+                &:active {
 
-                background-position: 0 -(@BUTTON_WIDTH_HEIGHT * 5);
+                    background-position: 0 -(@BUTTON_WIDTH_HEIGHT * 5);
+                }
             }
         }
 
@@ -148,11 +153,6 @@
 
             background-position: @ICON_FULL_SCREEN_X @ICON_ENABLED_Y;
         }
-    }
-
-    .button:active {
-
-        background-position: 0 -@BUTTON_WIDTH_HEIGHT;
     }
 
     .selected {

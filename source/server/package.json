@@ -18,8 +18,8 @@
 
     "dependencies": {
 
-        "node-static": "~0.6",
+        "node-static": "~0.7",
         "sockjs": "~0.3",
-        "rbytes": "~0.0"
+        "rbytes": "~1.0"
     }
 }

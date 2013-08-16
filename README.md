@@ -88,7 +88,7 @@ Clean the documentation directory.
 
     # Clean task, handlebars target followed by handlebars task, build target
     $ grunt clean:handlebars handlebars:build
-    # same as
+    # or
     $ grunt rebuildTemplates
 
 [node.js]: http://nodejs.org/ "Node.js Homepage"

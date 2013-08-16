@@ -14,7 +14,7 @@ Change to this directory and use npm to install all dependencies:
 
 Change to this directory and run:
 
-    $ node server.js [logLevel]
+    $ node app.js [logLevel]
 
 ### Options
 
@@ -29,10 +29,12 @@ Default value: debug
 ### Examples
 
     # Default log level
-    $ node server.js
+    $ node app.js
+    # or
+    $ npm start
 
     # error log level
-    $ node server.js error
+    $ node app.js error
 
 ## To-do
 

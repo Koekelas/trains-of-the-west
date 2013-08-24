@@ -28,22 +28,12 @@ define(function (require) {
         app = function app() {
 
                 /**
-                 * The instance.
-                 *
-                 * @property instance
-                 * @type Object
-                 * @private
-                 */
-            var instance = {},
-
-
-                /**
                  * Checks if the browser is capable of running the client. If it is, it instantiates the client. If it isn't, it renders an error message.
                  *
                  * @method main
                  * @private
                  */
-                main = function main() {
+            var main = function main() {
 
                     if (browser.isSupported()) {
 
@@ -83,10 +73,7 @@ define(function (require) {
                 };
 
             initialise();
-
-            return instance;
         };
 
-    return app();
-
+    app();
 });

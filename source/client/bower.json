@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "author": "Nicolas De Jaeghere",
     "description": "Trains of the West client",
+    "private": true,
     "main": "resources/scripts/client/app.js",
 
     "devDependencies": {

@@ -6,8 +6,6 @@ Change to this directory and use npm to install all dependencies:
 
     $ npm install
 
-*Note: rbytes is optional, don't worry if it fails to install.*
-
 ## Server
 
 ### Usage

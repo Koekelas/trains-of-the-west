@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "author": "Nicolas De Jaeghere",
     "description": "Trains of the West server",
+    "private": true,
     "main": "app.js",
 
     "scripts": {
@@ -19,7 +20,11 @@
     "dependencies": {
 
         "node-static": "~0.7",
-        "sockjs": "~0.3",
+        "sockjs": "~0.3"
+    },
+
+    "optionalDependencies": {
+
         "rbytes": "~1.0"
     }
 }

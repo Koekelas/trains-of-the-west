@@ -1,5 +1,5 @@
 /*jslint browser: true, plusplus: true*/
-/*global define*/
+/*global define, process*/
 
 define(function () {
 
@@ -162,20 +162,20 @@ define(function () {
 
             create = function create(prototype) {
 
-                var instance,
+                var nstnc,
                     Fnctn;
 
                 if (Object.create) {
 
-                    instance = Object.create(prototype);
+                    nstnc = Object.create(prototype);
                 } else {
 
-                    Fnctn = function () {};
+                    Fnctn = function () { /*empty*/ };
                     Fnctn.prototype = prototype;
-                    instance = new Fnctn();
+                    nstnc = new Fnctn();
                 }
 
-                return instance;
+                return nstnc;
             },
 
             arrayify = function arrayify(phoneyArray, firstIndex, lastIndex) {
@@ -191,6 +191,27 @@ define(function () {
 
                     fnctn.apply(that, boundArguments.concat(arrayify(arguments)));
                 };
+            },
+
+            nextTick = function nextTick(callback) {
+
+                //isObject(process) and isObject(window) might throw a ReferenceError depending on the environment
+                if (typeof process === "object" && isFunction(process.nextTick)) {
+
+                    process.nextTick(callback);
+                } else if (typeof window === "object") {
+
+                    if (isFunction(window.setImmediate)) {
+
+                        window.setImmediate(callback);
+                    } else {
+
+                        window.setTimeout(callback, 0);
+                    }
+                } else {
+
+                    throw { message: "Exhausted possible nextTick implementations" };
+                }
             };
 
         areEqual = function areEqual(x, y) {
@@ -257,11 +278,12 @@ define(function () {
         instance.isObject = isObject;
         instance.isArray = isArray;
         instance.isFunction = isFunction;
+        instance.create = create;
         instance.clone = clone;
         instance.areEqual = areEqual;
-        instance.create = create;
         instance.arrayify = arrayify;
         instance.bind = bind;
+        instance.nextTick = nextTick;
 
         return instance;
     };

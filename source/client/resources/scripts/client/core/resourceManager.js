@@ -100,7 +100,6 @@ define(function (require) {
                         mg = image(path, cssClassSequence.nextValue());
                         mg.one("ready", onReadyImage, onLoad);
                         mg.one("error", onErrorImage);
-                        mg.make();
                         images.set(path, mg);
                     }
 

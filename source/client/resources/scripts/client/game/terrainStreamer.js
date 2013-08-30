@@ -1,4 +1,4 @@
-/*jslint browser: true, plusplus: true*/
+/*jslint browser: true, plusplus: true, nomen: true*/
 /*global define*/
 
 define(function (require) {
@@ -18,7 +18,7 @@ define(function (require) {
             var numberOfChunksToLoad = 0,
                 numberOfChunksLoaded = 0,
                 instance = listenable(),
-                super_trigger = instance.superior("trigger"),
+                super_trigger = instance._superior("trigger"),
 
                 loadChunk = function loadChunk(row, column) {
 

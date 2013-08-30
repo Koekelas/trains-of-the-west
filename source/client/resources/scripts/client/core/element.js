@@ -77,7 +77,7 @@ define(function (require) {
 
     prototype._initialise = function _initialise() {
 
-        this.superior("_initialise")();
+        this._superior("_initialise")();
         this._position = {};
         this._createElements();
         this.reset();

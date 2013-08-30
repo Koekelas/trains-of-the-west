@@ -164,24 +164,24 @@ define(function (require) {
         this._opacityMap = { startsOpaque: this._isPixelOpaque(pixelBuffer, 0), map: map };
     };
 
-    prototype._onLoad = function _onLoad() {
-
-        window.clearTimeout(this._timeOutTimerId);
-        this._generateOpacityMap();
-        this._isReady = true;
-        this.trigger("ready");
-    };
-
     prototype._addListeners = function _addListeners() {
 
-        jquery(this._imageElement).one("load", pocketKnife.bind(prototype._onLoad, this));
+        var that = this;
+
+        jquery(this._imageElement).one("load", function onLoad() {
+
+            window.clearTimeout(that._timeOutTimerId);
+            that._generateOpacityMap();
+            that._isReady = true;
+            that.trigger("ready");
+        });
     };
 
     prototype._initialise = function _initialise(path, cssClass) {
 
         var that = this;
 
-        this.superior("_initialise")();
+        this._superior("_initialise")();
         this._path = path;
         this._cssClass = cssClass;
         this._imageElement = new Image();

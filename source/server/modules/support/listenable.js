@@ -262,16 +262,17 @@ var map = require("./map"),
         /**
          * A helper method for creating a super method.
          *
-         * @method superior
+         * @method _superior
          * @param {String} methodName The name of the method.
          * @return {Function} The super method.
+         * @protected
          * @example
          *     var myListenable = function myListenable() {
          *
          *         "use strict";
          *
          *         var instance = listenable(), //inherit listenable
-         *             super_trigger = instance.superior("trigger"), //create the trigger super method
+         *             super_trigger = instance._superior("trigger"), //create the trigger super method
          *
          *             //my trigger
          *             trigger = function trigger() {
@@ -284,7 +285,7 @@ var map = require("./map"),
          *         return instance;
          *     };
          */
-        superior: function superior(methodName) {
+        _superior: function _superior(methodName) {
 
             return pocketKnife.bind(prototype[methodName], this);
         },

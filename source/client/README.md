@@ -20,8 +20,7 @@ Change to this directory and use Bower to install all dependencies:
 
 ### Memory
 
-*   Reduce the number of one-shot-functions (inline callbacks for merge, sort, each,...);
-*   Convert core/image.js and core/spriteSheet.js to a prototypal module.
+*   Reduce the number of one-shot-functions (inline callbacks for merge, sort, each,...).
 
 ### OpenShift
 

@@ -1,4 +1,4 @@
-/*jslint browser: true, plusplus: true*/
+/*jslint browser: true, plusplus: true, nomen: true*/
 /*global define*/
 
 define(function (require) {
@@ -123,7 +123,7 @@ define(function (require) {
                 selectedTool,
                 isOppositeModeSelected = false,
                 instance = listenable(),
-                super_trigger = instance.superior("trigger"),
+                super_trigger = instance._superior("trigger"),
 
                 toggleOppositeMode = function toggleOppositeMode() {
 

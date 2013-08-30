@@ -1,4 +1,4 @@
-/*jslint browser: true, plusplus: true, nomen: true*/
+/*jslint browser: true, plusplus: true, nomen: true, nomen: true*/
 /*global define*/
 
 define(function (require) {
@@ -215,7 +215,7 @@ define(function (require) {
 
     prototype._initialise = function _initialise(row, column, spriteSheetCell, height) {
 
-        this.superior("_initialise")();
+        this._superior("_initialise")();
         this._location = { row: row, column: column };
         this._tileEntities = map();
         this._hash = (chunkDimensions.COLUMNS * terrainDimensions.COLUMNS * row + column).toString();

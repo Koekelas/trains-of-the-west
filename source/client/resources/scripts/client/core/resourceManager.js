@@ -1,4 +1,4 @@
-/*jslint browser: true, plusplus: true*/
+/*jslint browser: true, plusplus: true, nomen: true*/
 /*global define*/
 
 define(function (require) {
@@ -44,8 +44,8 @@ define(function (require) {
                 spriteSheets,
                 styleElement,
                 instance = listenable(),
-                super_off = instance.superior("off"),
-                super_trigger = instance.superior("trigger"),
+                super_off = instance._superior("off"),
+                super_trigger = instance._superior("trigger"),
 
                 generateCss = function generateCss() {
 
@@ -131,7 +131,6 @@ define(function (require) {
                             super_trigger("ready", spriteSheetPath);
                             onReady();
                         });
-                        spriteSht.make();
                         spriteSheets.set(spriteSheetPath, spriteSht);
                     }
 

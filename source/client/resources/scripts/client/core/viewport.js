@@ -1,4 +1,4 @@
-/*jslint browser: true, plusplus: true*/
+/*jslint browser: true, plusplus: true, nomen: true*/
 /*global define, HTMLElement*/
 
 define(function (require) {
@@ -19,7 +19,7 @@ define(function (require) {
                 windowElement,
                 bodyElement,
                 instance = listenable(),
-                super_trigger = instance.superior("trigger"),
+                super_trigger = instance._superior("trigger"),
 
                 enableFullScreen = function enableFullScreen(enable) {
 

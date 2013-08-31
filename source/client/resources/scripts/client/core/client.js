@@ -40,7 +40,7 @@ define(function (require) {
             var time = function time() {
 
                         /**
-                         * The time in milliseconds when {{#crossLink "client.core.time/getDeltaTime:method"}}{{/crossLink}} was last called.
+                         * The time in milliseconds when {{#crossLink "client.core.time/calculateDeltaTime:method"}}{{/crossLink}} was last called.
                          *
                          * @property previousNow
                          * @type Number
@@ -61,10 +61,10 @@ define(function (require) {
                         /**
                          * Calculates the delta time.
                          *
-                         * @method getDeltaTime
+                         * @method calculateDeltaTime
                          * @return {Number} The time elapsed in seconds since this method was last called.
                          */
-                        getDeltaTime = function getDeltaTime() {
+                        calculateDeltaTime = function calculateDeltaTime() {
 
                             var now = Date.now(),
                                 deltaTime = (now - previousNow) / timeInMilliseconds.ONE_SECOND;
@@ -74,7 +74,7 @@ define(function (require) {
                             return deltaTime;
                         };
 
-                    instance.getDeltaTime = getDeltaTime;
+                    instance.calculateDeltaTime = calculateDeltaTime;
 
                     return instance;
                 },
@@ -179,7 +179,7 @@ define(function (require) {
                 run = function run() {
 
                     viewport.scheduleFrame(run);
-                    scene.update(tm.getDeltaTime());
+                    scene.update(tm.calculateDeltaTime());
                 },
 
                 /**

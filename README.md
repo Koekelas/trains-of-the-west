@@ -4,7 +4,7 @@
 
 Trains of the West uses the Node.js runtime environment, the Bower- and npm-package manager and the Grunt task runner.
 
-[Download][node.js] and install Node.js (npm comes with Node.js).
+[Download][download Node.js] and install Node.js (npm comes with Node.js).
 
 Once Node.js is installed, change to this directory and use npm to install Bower, Grunt, it's CLI and it's plugins:
 
@@ -88,7 +88,7 @@ Clean the documentation directory.
 
     # Clean task, handlebars target followed by handlebars task, build target
     $ grunt clean:handlebars handlebars:build
-    # same as
+    # or
     $ grunt rebuildTemplates
 
-[node.js]: http://nodejs.org/ "Node.js Homepage"
+[download Node.js]: http://nodejs.org/ "Node.js Homepage"

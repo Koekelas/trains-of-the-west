@@ -1,5 +1,5 @@
 /**
- * @license Trains Of The West Copyright (c) 2012-2013 by Bart Coppens (art) and Nicolas De Jaeghere (code), All Rights Reserved.
+ * @license Trains of the West Copyright (c) 2012-2013 by Bart Coppens (art) and Nicolas De Jaeghere (code), All Rights Reserved.
  */
 
 /*jslint browser: true, plusplus: true*/
@@ -28,22 +28,12 @@ define(function (require) {
         app = function app() {
 
                 /**
-                 * The instance.
-                 *
-                 * @property instance
-                 * @type Object
-                 * @private
-                 */
-            var instance = {},
-
-
-                /**
                  * Checks if the browser is capable of running the client. If it is, it instantiates the client. If it isn't, it renders an error message.
                  *
                  * @method main
                  * @private
                  */
-                main = function main() {
+            var main = function main() {
 
                     if (browser.isSupported()) {
 
@@ -83,10 +73,7 @@ define(function (require) {
                 };
 
             initialise();
-
-            return instance;
         };
 
-    return app();
-
+    app();
 });

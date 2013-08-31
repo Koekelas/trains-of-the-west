@@ -6,15 +6,13 @@ Change to this directory and use npm to install all dependencies:
 
     $ npm install
 
-*Note: rbytes is optional, don't worry if it fails to install.*
-
 ## Server
 
 ### Usage
 
 Change to this directory and run:
 
-    $ node server.js [logLevel]
+    $ node app.js [logLevel]
 
 ### Options
 
@@ -29,10 +27,12 @@ Default value: debug
 ### Examples
 
     # Default log level
-    $ node server.js
+    $ node app.js
+    # or
+    $ npm start
 
     # error log level
-    $ node server.js error
+    $ node app.js error
 
 ## To-do
 

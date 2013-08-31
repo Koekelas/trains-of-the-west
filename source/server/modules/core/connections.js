@@ -1,4 +1,4 @@
-/*jslint node: true, plusplus: true*/
+/*jslint node: true, plusplus: true, nomen: true*/
 
 "use strict";
 
@@ -13,7 +13,7 @@ var messageKeys = require("../game/constants").messageKeys,
         var sockJsServer,
             cnnctns = map(),
             instance = listenable(),
-            super_trigger = instance.superior("trigger"),
+            super_trigger = instance._superior("trigger"),
 
             send = function send(connection, message) {
 

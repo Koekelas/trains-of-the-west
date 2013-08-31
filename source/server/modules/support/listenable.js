@@ -165,11 +165,11 @@ var map = require("./map"),
          *
          * <h4>The following combinations are allowed:</h4>
          * <dl>
-         *   <dt>`eventName` and `callback` undefined</dt>
+         *   <dt>`eventName` and `callback` are undefined</dt>
          *   <dd>Removes all listeners.</dd>
-         *   <dt>`eventName` defined</dt>
+         *   <dt>`eventName` is defined</dt>
          *   <dd>Removes all listeners for the specified event name.</dd>
-         *   <dt>`eventName` and `callback` defined</dt>
+         *   <dt>`eventName` and `callback` are defined</dt>
          *   <dd>Removes the specified listener.</dd>
          * </dl>
          *
@@ -260,31 +260,32 @@ var map = require("./map"),
         },
 
         /**
-         * A helper method for creating super methods.
+         * A helper method for creating a super method.
          *
-         * @method superior
+         * @method _superior
          * @param {String} methodName The name of the method.
          * @return {Function} The super method.
+         * @protected
          * @example
          *     var myListenable = function myListenable() {
          *
          *         "use strict";
          *
-         *         var instance = listenable(), //inherit from listenable
-         *             super_trigger = instance.superior("trigger"), //create the trigger super method
+         *         var instance = listenable(), //inherit listenable
+         *             super_trigger = instance._superior("trigger"), //create the trigger super method
          *
-         *             //my custom trigger
+         *             //my trigger
          *             trigger = function trigger() {
          *
          *                 super_trigger(); //call it's super method
          *             };
          *
-         *         instance.trigger = trigger; //override trigger with my custom trigger
+         *         instance.trigger = trigger; //override trigger
          *
          *         return instance;
          *     };
          */
-        superior: function superior(methodName) {
+        _superior: function _superior(methodName) {
 
             return pocketKnife.bind(prototype[methodName], this);
         },

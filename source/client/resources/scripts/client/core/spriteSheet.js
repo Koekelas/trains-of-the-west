@@ -36,7 +36,7 @@ define(function (require) {
                 css += partialCssCell
                     .replace("{{cell}}", (row * this._numberOfColumns + column).toString())
                     .replace("{{backgroundX}}", ((this._cellWidth * column) * -1).toString())
-                    .replace("{{backgroundY}}", ((this._cellHeight + row) * -1).toString());
+                    .replace("{{backgroundY}}", ((this._cellHeight * row) * -1).toString());
             }
         }
 

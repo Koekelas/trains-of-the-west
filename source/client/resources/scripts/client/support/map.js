@@ -12,7 +12,7 @@ define(function (require) {
 
         create = function create(keys, values) {
 
-            return pocketKnife.create(prototype).initialise(keys, values);
+            return pocketKnife.create(prototype)._initialise(keys, values);
         };
 
     prototype = {
@@ -120,7 +120,7 @@ define(function (require) {
             return this._values[key];
         },
 
-        initialise: function initialise(keys, values) {
+        _initialise: function _initialise(keys, values) {
 
             this._keys = keys || vector();
             this._values = values || {};

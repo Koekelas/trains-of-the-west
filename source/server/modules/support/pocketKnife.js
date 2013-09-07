@@ -64,21 +64,23 @@ var pocketKnife = function pocketKnife() {
 
         areObjectsEqual = function (leftObject, rightObject) {
 
-            var propertyName,
-                areQl = true;
+            var areQl = true,
+                propertyName;
 
-            if (leftObject !== rightObject) {
+            if (leftObject === rightObject) {
 
-                for (propertyName in leftObject) {
+                return areQl;
+            }
 
-                    if (leftObject.hasOwnProperty(propertyName) && rightObject.hasOwnProperty(propertyName)) {
+            for (propertyName in leftObject) {
 
-                        if (!areEqual(leftObject[propertyName], rightObject[propertyName])) {
+                if (leftObject.hasOwnProperty(propertyName) && rightObject.hasOwnProperty(propertyName)) {
 
-                            areQl = false;
+                    if (!areEqual(leftObject[propertyName], rightObject[propertyName])) {
 
-                            break;
-                        }
+                        areQl = false;
+
+                        break;
                     }
                 }
             }
@@ -88,26 +90,29 @@ var pocketKnife = function pocketKnife() {
 
         areArraysEqual = function areArraysEqual(leftArray, rightArray) {
 
-            var i,
-                numberOfProperties,
-                areQl = true;
+            var areQl = true,
+                i,
+                numberOfProperties;
 
-            if (leftArray !== rightArray) {
+            if (leftArray === rightArray) {
 
-                if (leftArray.length === rightArray.length) {
+                return areQl;
+            }
 
-                    for (i = 0, numberOfProperties = leftArray.length; i < numberOfProperties; ++i) {
+            if (leftArray.length !== rightArray.length) {
 
-                        if (!areEqual(leftArray[i], rightArray[i])) {
+                areQl = false;
 
-                            areQl = false;
+                return areQl;
+            }
 
-                            break;
-                        }
-                    }
-                } else {
+            for (i = 0, numberOfProperties = leftArray.length; i < numberOfProperties; ++i) {
+
+                if (!areEqual(leftArray[i], rightArray[i])) {
 
                     areQl = false;
+
+                    break;
                 }
             }
 
@@ -116,17 +121,17 @@ var pocketKnife = function pocketKnife() {
 
         clone,
 
-        cloneObject = function cloneObject(bjct) {
+        cloneObject = function cloneObject(object) {
 
             var propertyName,
                 clonedProperty,
                 cln = {};
 
-            for (propertyName in bjct) {
+            for (propertyName in object) {
 
-                if (bjct.hasOwnProperty(propertyName)) {
+                if (object.hasOwnProperty(propertyName)) {
 
-                    clonedProperty = clone(bjct[propertyName]);
+                    clonedProperty = clone(object[propertyName]);
 
                     if (clonedProperty !== undefined) {
 

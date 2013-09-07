@@ -6,6 +6,7 @@ define(function (require) {
     "use strict";
 
     var map = require("support/map"),
+        pocketKnife = require("support/pocketKnife"),
         vector = require("support/vector"),
 
         deferred = function deferred() {
@@ -14,9 +15,9 @@ define(function (require) {
 
                     var instance = {},
 
-                        then = function then(onResolve, onReject) {
+                        then = function then(onFufil, onReject) {
 
-                            dfrrd.then(onResolve, onReject);
+                            dfrrd.then(onFufil, onReject);
 
                             return instance;
                         };
@@ -29,7 +30,7 @@ define(function (require) {
                 states = {
 
                     PENDING: 0,
-                    RESOLVED: 1,
+                    FUFILLED: 1,
                     REJECTED: 2
                 },
                 state = states.PENDING,
@@ -39,7 +40,7 @@ define(function (require) {
 
                 notifyRelevantListeners = function notifyRelevantListeners() {
 
-                    var lstnrs = state === states.RESOLVED ? listeners.get("resolve") : listeners.get("reject");
+                    var lstnrs = state === states.FUFILLED ? listeners.get("fufil") : listeners.get("reject");
 
                     if (!lstnrs) {
 
@@ -53,26 +54,26 @@ define(function (require) {
                     listeners = map();
                 },
 
-                fulfil = function fulfil(canSatisfy, rslt) {
+                resolve = function resolve(canFufil, rslt) {
 
                     if (state !== states.PENDING) {
 
                         return;
                     }
 
-                    state = canSatisfy ? states.RESOLVED : states.REJECTED;
+                    state = canFufil ? states.FUFILLED : states.REJECTED;
                     result = rslt;
                     notifyRelevantListeners();
                 },
 
-                resolve = function resolve(value) {
+                fufil = function fufil(value) {
 
-                    fulfil(true, value);
+                    resolve(true, value);
                 },
 
                 reject = function reject(reason) {
 
-                    fulfil(false, reason);
+                    resolve(false, reason);
                 },
 
                 addListener = function addListener(eventName, callback) {
@@ -89,18 +90,21 @@ define(function (require) {
 
                     if (state !== states.PENDING) {
 
-                        notifyRelevantListeners();
+                        pocketKnife.nextTick(function onNextTick() {
+
+                            notifyRelevantListeners();
+                        });
                     }
                 },
 
-                then = function then(onResolve, onReject) {
+                then = function then(onFufil, onReject) {
 
-                    if (onResolve) {
+                    if (pocketKnife.isFunction(onFufil)) {
 
-                        addListener("resolve", onResolve);
+                        addListener("fufil", onFufil);
                     }
 
-                    if (onReject) {
+                    if (pocketKnife.isFunction(onReject)) {
 
                         addListener("reject", onReject);
                     }
@@ -113,7 +117,7 @@ define(function (require) {
                     return promise(instance);
                 };
 
-            instance.resolve = resolve;
+            instance.fufil = fufil;
             instance.reject = reject;
             instance.then = then;
             instance.getPure = getPure;

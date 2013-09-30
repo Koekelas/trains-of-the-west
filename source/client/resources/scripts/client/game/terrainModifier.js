@@ -93,7 +93,9 @@ define(function (require) {
                         } catch (exception) {
 
                             logger.logError("MODIFY_TERRAIN is ill-formed");
-                            logger.logError(exception.message, 1);
+                            logger.group();
+                            logger.logError(exception.message);
+                            logger.ungroup();
 
                             return;
                         }

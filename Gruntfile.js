@@ -123,7 +123,7 @@ var config = function config(grunt) {
 
                         pragmas: {
 
-                            release: true
+                            clientRelease: true
                         },
 
                         optimize: "uglify", //uglify2 and iOS 5 don't like each other

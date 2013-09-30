@@ -148,9 +148,9 @@ define(function (require) {
                     isOperaMn = (/Opera Mini/i).test(userAgent);
                     isBlackBerryOsBrwsr = (/BlackBerry/i).test(userAgent);
                     isSpprtd = isJsonSupported() && isCanvasSupported();
-                    //>>excludeStart("release", pragmas.release);
+                    //>>excludeStart("clientRelease", pragmas.clientRelease);
                     isSpprtd = isJsonSupported() && isCanvasSupported() && isCanvasTextSupported();
-                    //>>excludeEnd("release");
+                    //>>excludeEnd("clientRelease");
                     isMbl = isIOsSfr || isAndroidBrwsr || isAndroidSlk || isWebOsBrwsr || isWindowsPhoneInternetXplrr || isFirefoxMbl || isOperaMbl || isOperaMn || isBlackBerryOsBrwsr;
                     isWebSocketSpprtd = !!(window.WebSocket || window.MozWebSocket);
                     isFullScreenSpprtd = !!(document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled);

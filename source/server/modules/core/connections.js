@@ -66,7 +66,9 @@ var messageKeys = require("../game/constants").messageKeys,
                 } catch (exception) {
 
                     logger.logError("message is ill-formed");
-                    logger.logError(exception.message, 1);
+                    logger.group();
+                    logger.logError(exception.message);
+                    logger.ungroup();
                 }
 
                 return message;

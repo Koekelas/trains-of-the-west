@@ -4,85 +4,128 @@
 
 var logger = function logger() {
 
-    var logLevels = {
+    var severeties = {
 
             ERROR: 0,
             INFORMATION: 1,
             DEBUG: 2
         },
-        ONE_TAB = "  ",
-        level = logLevels.DEBUG,
+        TAB = "  ",
+        currentSeverety = severeties.DEBUG,
+        currentGroup = 0,
+        intendation,
         instance = {},
 
-        log = function log(lvl, message, numberOfIntendations) {
+        log = function log(message, severity) {
 
-            //>>excludeStart("release", pragmas.release);
-            if (console && console.log) {
+            //>>excludeStart("clientRelease", pragmas.clientRelease);
+            if (!(console && console.log)) {
 
-                if (lvl <= level) {
+                return;
+            }
 
-                    var levelPrefix,
-                        i,
-                        intendation = "";
+            var prefix;
 
-                    numberOfIntendations = numberOfIntendations || 0;
+            if (severity !== undefined) {
 
-                    switch (lvl) {
+                if (severity > currentSeverety) {
 
-                    case logLevels.ERROR:
+                    return;
+                }
 
-                        levelPrefix = "[ ERROR ] ";
+                switch (severity) {
 
-                        break;
-                    case logLevels.INFORMATION:
+                case severeties.ERROR:
 
-                        levelPrefix = "[ INFO  ] ";
+                    prefix = "[ ERROR ] ";
 
-                        break;
-                    case logLevels.DEBUG:
+                    break;
+                case severeties.INFORMATION:
 
-                        levelPrefix = "[ DEBUG ] ";
+                    prefix = "[ INFO  ] ";
 
-                        break;
-                    }
+                    break;
+                case severeties.DEBUG:
 
-                    for (i = 0; i < numberOfIntendations; ++i) {
+                    prefix = "[ DEBUG ] ";
 
-                        intendation += ONE_TAB;
-                    }
-
-                    console.log(levelPrefix + intendation + message);
+                    break;
                 }
             }
-            //>>excludeEnd("release");
+
+            if (prefix === undefined) {
+
+                prefix = "";
+            }
+
+            console.log(prefix + intendation + message);
+            //>>excludeEnd("clientRelease");
         },
 
-        logError = function logError(message, numberOfIntendations) {
+        logError = function logError(message) {
 
-            log(logLevels.ERROR, message, numberOfIntendations);
+            log(message, severeties.ERROR);
         },
 
-        logInformation = function logInformation(message, numberOfIntendations) {
+        logInformation = function logInformation(message) {
 
-            log(logLevels.INFORMATION, message, numberOfIntendations);
+            log(message, severeties.INFORMATION);
         },
 
-        logDebug = function logDebug(message, numberOfIntendations) {
+        logDebug = function logDebug(message) {
 
-            log(logLevels.DEBUG, message, numberOfIntendations);
+            log(message, severeties.DEBUG);
         },
 
-        setLevel = function setLevel(lvl) {
+        rebuildIntendation = function rebuildIntendation() {
 
-            level = lvl;
+            var numberOfTimesLeft = currentGroup;
+
+            intendation = "";
+
+            while (numberOfTimesLeft > 0) {
+
+                intendation += TAB;
+                --numberOfTimesLeft;
+            }
+        },
+
+        group = function group() {
+
+            ++currentGroup;
+            rebuildIntendation();
+        },
+
+        ungroup = function ungroup() {
+
+            if (currentGroup <= 0) {
+
+                return;
+            }
+
+            --currentGroup;
+            rebuildIntendation();
+        },
+
+        setSeverety = function setSeverety(severity) {
+
+            currentSeverety = severity;
+        },
+
+        initialise = function initialise() {
+
+            rebuildIntendation();
         };
 
-    instance.logLevels = logLevels;
+    instance.severeties = severeties;
     instance.log = log;
     instance.logError = logError;
     instance.logInformation = logInformation;
     instance.logDebug = logDebug;
-    instance.setLevel = setLevel;
+    instance.setSeverety = setSeverety;
+    instance.group = group;
+    instance.ungroup = ungroup;
+    initialise();
 
     return instance;
 };

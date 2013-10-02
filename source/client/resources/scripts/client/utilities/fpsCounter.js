@@ -21,21 +21,23 @@ define(function (require) {
                     timeSinceFpsUpdate += deltaTime;
                     ++frameCount;
 
-                    if (timeSinceFpsUpdate >= timeInSeconds.ONE_SECOND) {
+                    if (timeSinceFpsUpdate < timeInSeconds.ONE_SECOND) {
 
-                        timeSinceFpsUpdate = 0;
-                        fps = frameCount;
-                        frameCount = 0;
+                        return;
+                    }
 
-                        if (minimumFps === undefined || minimumFps > fps) {
+                    timeSinceFpsUpdate = 0;
+                    fps = frameCount;
+                    frameCount = 0;
 
-                            minimumFps = fps;
-                        }
+                    if (minimumFps === undefined || minimumFps > fps) {
 
-                        if (maximumFps === undefined || maximumFps < fps) {
+                        minimumFps = fps;
+                    }
 
-                            maximumFps = fps;
-                        }
+                    if (maximumFps === undefined || maximumFps < fps) {
+
+                        maximumFps = fps;
                     }
                 },
 

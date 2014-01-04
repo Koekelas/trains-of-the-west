@@ -93,7 +93,7 @@ define(function (require) {
                     rootElement = jquery(template(languageBundel));
                     zoomInButton = rootElement.find("[data-name='zoomIn']");
                     zoomOutButton = rootElement.find("[data-name='zoomOut']");
-                    tools = rootElement.find("[data-name*=Tool]");
+                    tools = rootElement.find("[data-name*='Tool']");
                     terrainTool = tools.filter("[data-name='terrainTool']");
                     terrainToolModes = terrainTool.find(".modes");
                     terrainToolCurrentModeIcon = terrainTool.find("[data-name='currentMode'] > div");

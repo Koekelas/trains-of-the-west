@@ -18,30 +18,30 @@ var server = require("./modules/core/server"),
 
             initialise = function initialise() {
 
-                var logLevel;
+                var severity;
 
                 switch (process.argv[2]) {
 
                 case "error":
 
-                    logLevel = logger.logLevels.ERROR;
+                    severity = logger.severities.ERROR;
 
                     break;
                 case "information":
 
-                    logLevel = logger.logLevels.INFORMATION;
+                    severity = logger.severities.INFORMATION;
 
                     break;
                 case "debug":
 
-                    logLevel = logger.logLevels.DEBUG;
+                    severity = logger.severities.DEBUG;
 
                     break;
                 }
 
-                if (logLevel !== undefined) {
+                if (severity !== undefined) {
 
-                    logger.setLevel(logLevel);
+                    logger.setSeverity(severity);
                 }
 
                 main();

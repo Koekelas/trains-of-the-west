@@ -4,14 +4,14 @@
 
 var logger = function logger() {
 
-    var severeties = {
+    var severities = {
 
             ERROR: 0,
             INFORMATION: 1,
             DEBUG: 2
         },
         TAB = "  ",
-        currentSeverety = severeties.DEBUG,
+        currentSeverity = severities.DEBUG,
         currentGroup = 0,
         intendation,
         instance = {},
@@ -28,24 +28,24 @@ var logger = function logger() {
 
             if (severity !== undefined) {
 
-                if (severity > currentSeverety) {
+                if (severity > currentSeverity) {
 
                     return;
                 }
 
                 switch (severity) {
 
-                case severeties.ERROR:
+                case severities.ERROR:
 
                     prefix = "[ ERROR ] ";
 
                     break;
-                case severeties.INFORMATION:
+                case severities.INFORMATION:
 
                     prefix = "[ INFO  ] ";
 
                     break;
-                case severeties.DEBUG:
+                case severities.DEBUG:
 
                     prefix = "[ DEBUG ] ";
 
@@ -64,17 +64,17 @@ var logger = function logger() {
 
         logError = function logError(message) {
 
-            log(message, severeties.ERROR);
+            log(message, severities.ERROR);
         },
 
         logInformation = function logInformation(message) {
 
-            log(message, severeties.INFORMATION);
+            log(message, severities.INFORMATION);
         },
 
         logDebug = function logDebug(message) {
 
-            log(message, severeties.DEBUG);
+            log(message, severities.DEBUG);
         },
 
         rebuildIntendation = function rebuildIntendation() {
@@ -107,9 +107,9 @@ var logger = function logger() {
             rebuildIntendation();
         },
 
-        setSeverety = function setSeverety(severity) {
+        setSeverity = function setSeverity(severity) {
 
-            currentSeverety = severity;
+            currentSeverity = severity;
         },
 
         initialise = function initialise() {
@@ -117,12 +117,12 @@ var logger = function logger() {
             rebuildIntendation();
         };
 
-    instance.severeties = severeties;
+    instance.severities = severities;
     instance.log = log;
     instance.logError = logError;
     instance.logInformation = logInformation;
     instance.logDebug = logDebug;
-    instance.setSeverety = setSeverety;
+    instance.setSeverity = setSeverity;
     instance.group = group;
     instance.ungroup = ungroup;
     initialise();

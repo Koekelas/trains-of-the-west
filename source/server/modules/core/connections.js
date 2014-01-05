@@ -66,7 +66,9 @@ var messageKeys = require("../game/constants").messageKeys,
                 } catch (exception) {
 
                     logger.logError("message is ill-formed");
-                    logger.logError(exception.message, 1);
+                    logger.group();
+                    logger.logError(exception.message);
+                    logger.ungroup();
                 }
 
                 return message;
@@ -100,30 +102,30 @@ var messageKeys = require("../game/constants").messageKeys,
                     sockjs_url: "//cdnjs.cloudflare.com/ajax/libs/sockjs-client/0.3.4/sockjs.min.js",
                     prefix: "/totw",
 
-                    log: function log(level, message) {
+                    log: function log(severity, message) {
 
-                        var lvl;
+                        var svrty;
 
-                        switch (level) {
+                        switch (severity) {
 
                         case "error":
 
-                            lvl = logger.logLevels.ERROR;
+                            svrty = logger.severities.ERROR;
 
                             break;
                         case "info":
 
-                            lvl = logger.logLevels.INFORMATION;
+                            svrty = logger.severities.INFORMATION;
 
                             break;
                         case "debug":
 
-                            lvl = logger.logLevels.DEBUG;
+                            svrty = logger.severities.DEBUG;
 
                             break;
                         }
 
-                        logger.log(lvl, "SOCKJS - " + message);
+                        logger.log("SOCKJS - " + message, svrty);
                     }
                 };
 

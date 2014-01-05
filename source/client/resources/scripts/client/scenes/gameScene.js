@@ -132,9 +132,9 @@ define(function (require) {
 
                     entities.set("terrain", terrain(instance, cmr.getMaximumZoom()));
                     entities.set("toolbar", toolbar(cmr));
-                    //>>excludeStart("release", pragmas.release);
+                    //>>excludeStart("clientRelease", pragmas.clientRelease);
                     entities.set("statistics", statistics());
-                    //>>excludeEnd("release");
+                    //>>excludeEnd("clientRelease");
                 },
 
                 addListeners = function addListeners() {

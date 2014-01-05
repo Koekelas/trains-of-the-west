@@ -1,11 +1,12 @@
 /*jslint browser: true, plusplus: true*/
-/*global define, Raphael*/
+/*global define*/
 
 define(function (require) {
 
     "use strict";
 
     var jquery = require("jquery"),
+        raphael = require("raphael"),
         layerManager = require("core/layerManager"),
         viewport = require("core/viewport"),
 
@@ -32,7 +33,7 @@ define(function (require) {
                     overlayElement.addClass("layer");
                     overlayElement.css("z-index", layerManager.getLayer("overlay"));
                     jquery("#gui").before(overlayElement);
-                    paper = Raphael(overlayElement.get(0), viewport.getWidth(), viewport.getHeight());
+                    paper = raphael(overlayElement.get(0), viewport.getWidth(), viewport.getHeight());
                 },
 
                 onResize = function onResize() {

@@ -1,5 +1,5 @@
 /*jslint browser: true, plusplus: true, nomen: true*/
-/*global define, Raphael*/
+/*global define*/
 
 define(function (require) {
 
@@ -7,6 +7,7 @@ define(function (require) {
 
     var timeInMilliseconds = require("game/clientConstants").time.inMilliseconds,
         directions = require("game/constants").directions,
+        raphael = require("raphael"),
         overlay = require("core/overlay"),
         pocketKnife = require("support/pocketKnife"),
 
@@ -137,7 +138,7 @@ define(function (require) {
                     this._hide();
                 }
 
-                this._outline.animate(Raphael.animation(
+                this._outline.animate(raphael.animation(
 
                     { "stroke-opacity": 0 },
                     timeInMilliseconds.ONE_SECOND * 0.5,

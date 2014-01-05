@@ -106,6 +106,7 @@ var config = function config(grunt) {
                             hammer: "empty:",
                             hammerJquery: "../libraries/jquery.hammer",
                             handlebars: "empty:",
+                            raphael: "empty:",
                             i18n: "../libraries/bower/requirejs-i18n/i18n",
                             templates: "../../templates",
                             spriteSheets: "../../images/spriteSheets"
@@ -123,7 +124,7 @@ var config = function config(grunt) {
 
                         pragmas: {
 
-                            release: true
+                            clientRelease: true
                         },
 
                         optimize: "uglify", //uglify2 and iOS 5 don't like each other

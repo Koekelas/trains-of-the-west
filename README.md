@@ -1,94 +1,88 @@
-# Trains of the West
+![logo]
+Trains of the West is a multiplayer tycoon game in which you have to build a railway company in the wild west. The game client runs, without the need for plugins, inside the browser. Note that this game is far from finished. It may not be playable or it may even crash and burn.
 
-## Software requirements
+[![title screen]][title screen full]
+[![terrain with tracks]][terrain with tracks full]
 
-Trains of the West uses the Node.js runtime environment, the Bower- and npm-package manager and the Grunt task runner.
+# Software requirements
 
-[Download][download Node.js] and install Node.js (npm comes with Node.js).
+> If you just want to try it out, you can find a development version running on [OpenShift][play online]. **There's no need to make an account, just hit "Sign in"**.
 
-Once Node.js is installed, change to this directory and use npm to install Bower, Grunt, it's CLI and it's plugins:
+Install [Node.js][Node.js homepage] and make sure both Node.js and npm are on your path. Navigate your shell to this directory and run:
 
-    $ npm install -g bower grunt-cli
-    $ npm install
+```
+$ npm install -g bower grunt-cli
+$ npm install
+```
 
-## Grunt
+See the client and server readme for additional software requirements.
 
-### Usage
+# Target browsers
 
-Change to this directory, or any child directory, and run:
+*   Latest Firefox & Chromium;
+*   Internet Explorer 9+;
+*   Opera 12+;
+*   Safari Mobile on iOS 5 (1st gen iPad, partial ES5 support);
+*   Firefox OS (maybe, if it comes to tablets).
 
-    $ grunt [task[:target] [task[:target] ...]]
+# Grunt tasks
 
-### Tasks
+*   **build**
 
-When no task is specified, the default task (rebuild) is run.
+    Generate an optimised build for deployment on OpenShift. After running this task, the optimised build can be found in ./build.
 
-**build**
+*   **rebuild** (default task)
 
-Generate an optimised build for deployment on OpenShift. After running this task, the optimised build can be found in ./build.
+    Equivalent to `clean:build build`.
 
-**rebuild**
+*   **less**
 
-Equivalent to clean:build build.
+    *   *:build*
 
-**less**
+        Build all LESS style sheets.
 
-*build*
+*   **rebuildStyles**
 
-Build all LESS style sheets.
+    Equivalent to `clean:less less:build`.
 
-**rebuildStyles**
+*   **handlebars**
 
-Equivalent to clean:less less:build.
+    *   *:build*
 
-**handlebars**
+        Build all handlebars templates.
 
-*build*
+*   **rebuildTemplates**
 
-Build all handlebars templates.
+    Equivalent to `clean:handlebars handlebars:build`.
 
-**rebuildTemplates**
+*   **yuidoc**
 
-Equivalent to clean:handlebars handlebars:build.
+    *   *:build*
 
-**yuidoc**
+        Build the documentation. After running this task, the documentation can be found in ./documentation.
 
-*build*
+*   **clean**
 
-Build the documentation. After running this task, the documentation can be found in ./documentation.
+    *   *:build*
 
-**clean**
+        Clean the build directory.
 
-*build*
+    *   *:less*
 
-Clean the build directory.
+        Clean all build LESS style sheets.
 
-*less*
+    *   *:handlebars*
 
-Clean all build LESS style sheets.
+        Clean all build handlebars templates.
 
-*handlebars*
+    *   *:yuidoc*
 
-Clean all build handlebars templates.
+        Clean the documentation directory.
 
-*yuidoc*
-
-Clean the documentation directory.
-
-### Examples
-
-    # Default task
-    $ grunt
-
-    # Clean task, all targets
-    $ grunt clean
-
-    # Clean task, handlebars target
-    $ grunt clean:handlebars
-
-    # Clean task, handlebars target followed by handlebars task, build target
-    $ grunt clean:handlebars handlebars:build
-    # or
-    $ grunt rebuildTemplates
-
-[download Node.js]: http://nodejs.org/ "Node.js Homepage"
+[logo]: https://raw.github.com/Koekelas/trains-of-the-west/master/screenshots/logo.png
+[title screen]: https://raw.github.com/Koekelas/trains-of-the-west/master/screenshots/screenshot01-thumb.png
+[terrain with tracks]: https://raw.github.com/Koekelas/trains-of-the-west/master/screenshots/screenshot02-thumb.png
+[title screen full]: https://raw.github.com/Koekelas/trains-of-the-west/master/screenshots/screenshot01.png "Click for Full Resolution"
+[terrain with tracks full]: https://raw.github.com/Koekelas/trains-of-the-west/master/screenshots/screenshot02.png "Click for Full Resolution"
+[play online]: https://totw-nicodeja.rhcloud.com/ "Play Online"
+[Node.js homepage]: http://nodejs.org/ "Node.js Homepage"

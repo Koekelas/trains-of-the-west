@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "author": "Nicolas De Jaeghere",
     "description": "Multiplayer tycoon game in which you have to build a railway company in the wild west",
+    "license": "Custom",
     "private": true,
 
     "devDependencies": {

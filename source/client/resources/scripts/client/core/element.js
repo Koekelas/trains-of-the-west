@@ -14,7 +14,7 @@ define(function (require) {
 
         create = function create() {
 
-            return pocketKnife.create(prototype).initialise();
+            return pocketKnife.create(prototype)._initialise();
         };
 
     prototype.setCssClass = function setCssClass(cssClass) {
@@ -75,11 +75,9 @@ define(function (require) {
         this.off();
     };
 
-    prototype._super_initialise = prototype.initialise;
+    prototype._initialise = function _initialise() {
 
-    prototype.initialise = function initialise() {
-
-        this._super_initialise();
+        this._superior("_initialise")();
         this._position = {};
         this._createElements();
         this.reset();

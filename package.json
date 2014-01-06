@@ -1,17 +1,20 @@
 {
 
-    "name": "totw",
-    "version": "0.0.1",
+    "name": "trains-of-the-west",
+    "version": "0.1.0",
     "author": "Nicolas De Jaeghere",
-    "description": "Trains of the West",
+    "description": "Multiplayer tycoon game in which you have to build a railway company in the wild west",
+    "license": "Custom",
+    "private": true,
 
     "devDependencies": {
 
         "grunt": "~0.4",
-        "grunt-contrib-copy": "~0.4",
+        "grunt-contrib-copy": "~0.5",
         "grunt-contrib-clean": "~0.5",
         "grunt-contrib-requirejs": "~0.4",
-        "grunt-contrib-less": "~0.6",
-        "grunt-contrib-handlebars": "~0.5"
+        "grunt-contrib-less": "~0.8",
+        "grunt-contrib-handlebars": "~0.6",
+        "grunt-contrib-yuidoc": "~0.5"
     }
 }

@@ -1,4 +1,4 @@
-/*jslint browser: true, plusplus: true*/
+/*jslint browser: true, plusplus: true, nomen: true*/
 /*global define*/
 
 define(function (require) {
@@ -19,7 +19,7 @@ define(function (require) {
                 isPn = false,
                 queue = vector(),
                 instance = listenable(),
-                super_trigger = instance.superior("trigger"),
+                super_trigger = instance._superior("trigger"),
 
                 trigger = function trigger(eventName, data) {
 
@@ -57,7 +57,9 @@ define(function (require) {
                     } catch (exception) {
 
                         logger.logError("message is ill-formed");
-                        logger.logError(exception.message, 1);
+                        logger.group();
+                        logger.logError(exception.message);
+                        logger.ungroup();
                     }
 
                     return message;

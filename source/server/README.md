@@ -1,57 +1,39 @@
 # Trains of the West Server
 
-## Dependencies
+# Software requirements
 
-Change to this directory and use npm to install all dependencies:
+Navigate your shell to this directory and run:
 
-    $ npm install
+```
+$ npm install
+```
 
-*Note: rbytes is optional, don't worry if it fails to install.*
+# Usage
 
-## Server
+Navigate your shell to this directory and run:
 
-### Usage
+```
+$ npm start
+```
 
-Change to this directory and run:
+# To-do
 
-    $ node server.js [logLevel]
-
-### Options
-
-**logLevel**
-
-Determines whether a log request gets logged based on the severity of the log request.
-
-Possible values: debug | information | error
-
-Default value: debug
-
-### Examples
-
-    # Default log level
-    $ node server.js
-
-    # error log level
-    $ node server.js error
-
-## To-do
-
-### General
+## General
 
 *   Write documentation;
 *   Improve error handling and logging.
 
-### Architecture
+## Architecture
 
 *   Decouple type and sprite sheet cell;
 *   Rethink responses, particularly MODIFY_TERRAIN;
 *   Intelligently combine messages and send them as one message.
 
-### Memory
+## Memory
 
-*   Reduce the number of one-shot-functions (inline callbacks for merge, sort, each,...);
-*   Convert game/spriteSheetDataStore.js to a prototypal module pattern.
+*   Reduce the number of one shot functions (inline callbacks for merge, sort, each,...);
+*   Convert game/spriteSheetDataStore.js to the prototypal module pattern.
 
-### OpenShift
+## OpenShift
 
-*   Only allow clients to connect via the HTTPS-protocol.
+*   Only allow clients to connect via the HTTPS protocol.

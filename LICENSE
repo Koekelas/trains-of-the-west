@@ -1,0 +1,68 @@
+The following files are Copyright (c) 2012-2014 by Bart Coppens, All Rights Reserved:
+
+    source/client/resources/images/appIcons/57x57.png
+    source/client/resources/images/appIcons/72x72.png
+    source/client/resources/images/appIcons/114x114.png
+    source/client/resources/images/appIcons/144x144.png
+    source/client/resources/images/splashScreens/320x480Landscape.png
+    source/client/resources/images/splashScreens/320x480Portrait.png
+    source/client/resources/images/splashScreens/640x960Landscape.png
+    source/client/resources/images/splashScreens/640x960Portrait.png
+    source/client/resources/images/splashScreens/640x1136Landscape.png
+    source/client/resources/images/splashScreens/640x1136Portrait.png
+    source/client/resources/images/splashScreens/768x1004Portrait.png
+    source/client/resources/images/splashScreens/1024x748Landscape.png
+    source/client/resources/images/splashScreens/1536x2008Portrait.png
+    source/client/resources/images/splashScreens/2048x1496Landscape.png
+    source/client/resources/images/spriteSheets/decorationsLarge1x.png
+    source/client/resources/images/spriteSheets/decorationsLarge2x.png
+    source/client/resources/images/spriteSheets/decorationsLarge3x.png
+    source/client/resources/images/spriteSheets/decorationsSmall1x.png
+    source/client/resources/images/spriteSheets/decorationsSmall2x.png
+    source/client/resources/images/spriteSheets/decorationsSmall3x.png
+    source/client/resources/images/spriteSheets/terrain1x.png
+    source/client/resources/images/spriteSheets/terrain2x.png
+    source/client/resources/images/spriteSheets/terrain3x.png
+    source/client/resources/images/spriteSheets/tracks1x.png
+    source/client/resources/images/spriteSheets/tracks2x.png
+    source/client/resources/images/spriteSheets/tracks3x.png
+    source/client/resources/images/startScene/logo.png
+    source/client/resources/images/startScene/logoSmartphone.png
+    source/client/resources/images/startScene/logoTablet.png
+    source/client/resources/images/startScene/signCenter.png
+    source/client/resources/images/startScene/signEastWest.png
+    source/client/resources/images/startScene/signNorthSouth.png
+    source/client/resources/images/startScene/signParts.png
+    source/client/resources/images/startScene/sky.png
+    source/client/resources/images/startScene/skySmartphone.png
+    source/client/resources/images/startScene/skyTablet.png
+    source/client/resources/images/startScene/smoke.png
+    source/client/resources/images/startScene/smokeTablet.png
+    source/client/resources/images/startScene/terrain.png
+    source/client/resources/images/startScene/terrainTablet.png
+    source/client/resources/images/startScene/train.png
+    source/client/resources/images/startScene/trainTablet.png
+    source/client/resources/images/startScene/widgetsCenter.png
+    source/client/resources/images/startScene/widgetsSides.png
+    source/client/resources/images/favicon.png
+
+I, Nicolas De Jaeghere, have permission to use and redistribute above files to demonstrate this project.
+
+
+Everything else is licensed under the AGPL:
+
+    Trians of the West, Multiplayer tycoon game in which you have to build a railway company in the wild west
+    Copyright (C) 2014  Nicolas De Jaeghere
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.

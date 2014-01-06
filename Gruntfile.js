@@ -21,6 +21,7 @@ var config = function config(grunt) {
         BUILD_CLIENT_TEMPLATES_PATH = BUILD_CLIENT_RESOURCES_PATH + "templates/",
         BUILD_CLIENT_ROOT_PATH = BUILD_CLIENT_TEMPLATES_PATH + "nls/root/",
         BUILD_SERVER_PATH = BUILD_PATH,
+        DOCUMENTATION_PATH = "documentation/",
 
         createCopyConfig = function createCopyConfig() {
 
@@ -75,6 +76,11 @@ var config = function config(grunt) {
                 handlebars: {
 
                     src: "<%= SOURCE_CLIENT_TEMPLATES_PATH %>*.js"
+                },
+
+                yuidoc: {
+
+                    src: "<%= DOCUMENTATION_PATH %>"
                 }
             };
         },
@@ -90,8 +96,8 @@ var config = function config(grunt) {
 
                         appDir: "<%= SOURCE_CLIENT_PATH %>",
                         dir: "<%= BUILD_CLIENT_PATH %>",
-                        baseUrl: "resources/scripts/client/",
                         fileExclusionRegExp: /^\.gitignore$|^\.idea$|^\.bowerrc$|^bower\.json$|^README\.md$|\.less$|\.hbs$/, //is matched against a file- or folder-name, not against a path
+                        baseUrl: "resources/scripts/client/",
 
                         paths: {
 
@@ -100,6 +106,7 @@ var config = function config(grunt) {
                             hammer: "empty:",
                             hammerJquery: "../libraries/jquery.hammer",
                             handlebars: "empty:",
+                            raphael: "empty:",
                             i18n: "../libraries/bower/requirejs-i18n/i18n",
                             templates: "../../templates",
                             spriteSheets: "../../images/spriteSheets"
@@ -117,7 +124,7 @@ var config = function config(grunt) {
 
                         pragmas: {
 
-                            release: true
+                            clientRelease: true
                         },
 
                         optimize: "uglify", //uglify2 and iOS 5 don't like each other
@@ -152,16 +159,37 @@ var config = function config(grunt) {
 
                 build: {
 
+                    expand: true,
+                    src: "<%= SOURCE_CLIENT_TEMPLATES_PATH %>*.hbs",
+                    dest: "",
+                    ext: ".js",
+
                     options: {
 
                         amd: true,
                         namespace: false
-                    },
+                    }
+                }
+            };
+        },
 
-                    expand: true,
-                    src: "<%= SOURCE_CLIENT_TEMPLATES_PATH %>*.hbs",
-                    dest: "",
-                    ext: ".js"
+        createYuidocConfig = function createYuidocConfig() {
+
+            return {
+
+                build: {
+
+                    name: "<%= PACKAGE.name %>",
+                    version: "<%= PACKAGE.version %>",
+                    description: "<%= PACKAGE.description %>",
+
+                    options: {
+
+                        paths: "<%= SOURCE_PATH %>",
+                        outdir: "<%= DOCUMENTATION_PATH %>",
+                        exclude: ".idea,libraries,node_modules", //is matched against a file- or folder-name, not against a path
+                        linkNatives: true
+                    }
                 }
             };
         },
@@ -170,6 +198,8 @@ var config = function config(grunt) {
 
             return {
 
+                PACKAGE: grunt.file.readJSON("package.json"),
+                SOURCE_PATH: SOURCE_PATH,
                 SOURCE_CLIENT_PATH: SOURCE_CLIENT_PATH,
                 SOURCE_CLIENT_STYLES_PATH: SOURCE_CLIENT_STYLES_PATH,
                 SOURCE_CLIENT_TEMPLATES_PATH: SOURCE_CLIENT_TEMPLATES_PATH,
@@ -183,11 +213,13 @@ var config = function config(grunt) {
                 BUILD_CLIENT_TEMPLATES_PATH: BUILD_CLIENT_TEMPLATES_PATH,
                 BUILD_CLIENT_ROOT_PATH: BUILD_CLIENT_ROOT_PATH,
                 BUILD_SERVER_PATH: BUILD_SERVER_PATH,
+                DOCUMENTATION_PATH: DOCUMENTATION_PATH,
                 copy: createCopyConfig(),
                 clean: createCleanConfig(),
                 requirejs: createRequirejsConfig(),
                 less: createLessConfig(),
-                handlebars: createHandlebarsConfig()
+                handlebars: createHandlebarsConfig(),
+                yuidoc: createYuidocConfig()
             };
         },
 
@@ -199,6 +231,7 @@ var config = function config(grunt) {
             grunt.loadNpmTasks("grunt-contrib-requirejs");
             grunt.loadNpmTasks("grunt-contrib-less");
             grunt.loadNpmTasks("grunt-contrib-handlebars");
+            grunt.loadNpmTasks("grunt-contrib-yuidoc");
             grunt.registerTask("rebuildStyles", [ "clean:less", "less:build" ]);
             grunt.registerTask("rebuildTemplates", [ "clean:handlebars", "handlebars:build" ]);
             grunt.registerTask("build", [

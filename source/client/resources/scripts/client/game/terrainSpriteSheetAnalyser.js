@@ -6,6 +6,7 @@ define(function (require) {
     "use strict";
 
     var directions = require("game/constants").directions,
+        cellHeightLevels = require("game/constants").terrainDesc.cellHeightLevels,
 
         terrainSpriteSheetAnalyser = function terrainSpriteSheetAnalyser() {
 
@@ -22,44 +23,56 @@ define(function (require) {
                         numberOfSpriteSheetCells,
                         corners,
                         spriteSheetCellHeights,
-                        spriteSheetCellHeightSouth,
                         spriteSheetCellWidth = spriteSheet.getCellWidth(),
                         spriteSheetCellHeight = spriteSheet.getCellHeight(),
-                        bottom = spriteSheetCellHeight - 1,
                         left = 0,
                         horizontalCenter = spriteSheetCellWidth / 2,
                         right = spriteSheetCellWidth - 1,
-                        surfaceVerticalCenter = Math.floor(spriteSheetCellHeight / 6) + 0.5,
-                        halfDirtHeight = Math.ceil(spriteSheetCellHeight / 3),
-                        quarterDirtHeight = halfDirtHeight / 2,
-                        cornerSouthY;
+                        surfaceHeight = Math.floor(spriteSheetCellHeight / 3),
+                        halfSurfaceHeight = Math.ceil(surfaceHeight / 2),
+                        oneHeigh = Math.ceil(spriteSheetCellHeight / 6);
 
                     for (spriteSheetCell = 0, numberOfSpriteSheetCells = spriteSheet.getNumberOfCells(); spriteSheetCell < numberOfSpriteSheetCells; ++spriteSheetCell) {
 
                         corners = {};
                         spriteSheetCellHeights = spriteSheet.getMetadata(spriteSheetCell, "heights");
-                        spriteSheetCellHeightSouth = spriteSheetCellHeights[directions.SOUTH];
-                        cornerSouthY = bottom - halfDirtHeight - quarterDirtHeight * spriteSheetCellHeightSouth;
-                        corners[directions.SOUTH] = createCorner(horizontalCenter, cornerSouthY);
                         corners[directions.NORTH] = createCorner(
 
                             horizontalCenter,
-                            Math.max(
-
-                                0,
-                                cornerSouthY - Math.floor((spriteSheetCellHeights[directions.NORTH] + 2 - spriteSheetCellHeightSouth) * surfaceVerticalCenter)
-                            )
+                            Math.max(0, (cellHeightLevels.MAXIMUM - spriteSheetCellHeights[directions.NORTH]) * oneHeigh - 1)
                         );
                         corners[directions.EAST] = createCorner(
 
                             right,
-                            cornerSouthY - Math.floor((spriteSheetCellHeights[directions.EAST] + 1 - spriteSheetCellHeightSouth) * surfaceVerticalCenter)
+                            halfSurfaceHeight + (cellHeightLevels.MAXIMUM - spriteSheetCellHeights[directions.EAST]) * oneHeigh - 1
+                        );
+                        corners[directions.SOUTH] = createCorner(
+
+                            horizontalCenter,
+                            surfaceHeight + (cellHeightLevels.MAXIMUM - spriteSheetCellHeights[directions.SOUTH]) * oneHeigh - 1
                         );
                         corners[directions.WEST] = createCorner(
 
                             left,
-                            cornerSouthY - Math.floor((spriteSheetCellHeights[directions.WEST] + 1 - spriteSheetCellHeightSouth) * surfaceVerticalCenter)
+                            halfSurfaceHeight + (cellHeightLevels.MAXIMUM - spriteSheetCellHeights[directions.WEST]) * oneHeigh - 1
                         );
+
+                        //exceptions to the above rules
+                        switch (spriteSheetCell) {
+
+                        case 1:
+
+                            ++corners[directions.SOUTH].y; //dirt causes surface to face the back
+
+                            break;
+                        case 5:
+
+                            ++corners[directions.NORTH].y; //dirt at east, south and west cause fold to face the back
+                            ++corners[directions.SOUTH].y; //dirt causes surface to face the back
+
+                            break;
+                        }
+
                         spriteSheet.setMetadata(spriteSheetCell, "corners", corners);
                     }
                 };

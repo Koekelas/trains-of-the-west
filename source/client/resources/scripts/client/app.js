@@ -1,10 +1,17 @@
 /**
- * @license Trains Of The West Copyright (c) 2012-2013 by Bart Coppens (art) and Nicolas De Jaeghere (code), All Rights Reserved.
+ * @license Trains of the West Copyright (c) 2012-2014 by Bart Coppens (art) and Nicolas De Jaeghere (code), All Rights Reserved.
+ * https://github.com/Koekelas/trains-of-the-west/blob/master/LICENSE
  */
 
 /*jslint browser: true, plusplus: true*/
 /*global define*/
 
+/**
+ * The Trains of the West client.
+ *
+ * @module client
+ * @namespace client
+ */
 define(function (require) {
 
     "use strict";
@@ -13,8 +20,20 @@ define(function (require) {
         client = require("core/client"),
         browser = require("support/browser"),
 
+        /**
+         * Responsible for bootstrapping the client.
+         *
+         * @class app
+         * @static
+         */
         app = function app() {
 
+                /**
+                 * Checks if the browser is capable of running the client. If it is, it instantiates the client. If it isn't, it renders an error message.
+                 *
+                 * @method main
+                 * @private
+                 */
             var main = function main() {
 
                     if (browser.isSupported()) {
@@ -29,6 +48,12 @@ define(function (require) {
                     }
                 },
 
+                /**
+                 * Adds the listeners.
+                 *
+                 * @method addListeners
+                 * @private
+                 */
                 addListeners = function addListeners() {
 
                     jquery(document).ready(function onReady() {
@@ -37,6 +62,12 @@ define(function (require) {
                     });
                 },
 
+                /**
+                 * Initialises the instance.
+                 *
+                 * @method initialise
+                 * @private
+                 */
                 initialise = function initialise() {
 
                     addListeners();
@@ -45,5 +76,5 @@ define(function (require) {
             initialise();
         };
 
-    return app();
+    app();
 });

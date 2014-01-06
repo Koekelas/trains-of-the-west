@@ -1,4 +1,4 @@
-/*jslint browser: true, plusplus: true*/
+/*jslint browser: true, plusplus: true, nomen: true*/
 /*global define*/
 
 define(function (require) {
@@ -27,7 +27,7 @@ define(function (require) {
                 cmr,
                 entities = map(),
                 instance = listenable(),
-                super_trigger = instance.superior("trigger"),
+                super_trigger = instance._superior("trigger"),
 
                 switchScene = function switchScene() {
 
@@ -132,9 +132,9 @@ define(function (require) {
 
                     entities.set("terrain", terrain(instance, cmr.getMaximumZoom()));
                     entities.set("toolbar", toolbar(cmr));
-                    //>>excludeStart("release", pragmas.release);
+                    //>>excludeStart("clientRelease", pragmas.clientRelease);
                     entities.set("statistics", statistics());
-                    //>>excludeEnd("release");
+                    //>>excludeEnd("clientRelease");
                 },
 
                 addListeners = function addListeners() {

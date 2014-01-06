@@ -1,4 +1,4 @@
-/*jslint browser: true, plusplus: true*/
+/*jslint browser: true, plusplus: true, nomen: true*/
 /*global define*/
 
 define(function (require) {
@@ -44,8 +44,8 @@ define(function (require) {
                 spriteSheets,
                 styleElement,
                 instance = listenable(),
-                super_off = instance.superior("off"),
-                super_trigger = instance.superior("trigger"),
+                super_off = instance._superior("off"),
+                super_trigger = instance._superior("trigger"),
 
                 generateCss = function generateCss() {
 
@@ -89,7 +89,7 @@ define(function (require) {
                     super_trigger("error", path);
                 },
 
-                createImage = function createImage(path, onLoad) {
+                createImage = function createImage(path, whenReady) {
 
                     var mg = images.get(path);
 
@@ -98,16 +98,18 @@ define(function (require) {
                         ++numberOfResources;
                         ++numberOfResourcesToLoad;
                         mg = image(path, cssClassSequence.nextValue());
-                        mg.one("ready", onReadyImage, onLoad);
+                        mg.one("ready", onReadyImage, whenReady);
                         mg.one("error", onErrorImage);
-                        mg.make();
                         images.set(path, mg);
+                    } else {
+
+                        call(whenReady, mg);
                     }
 
                     return mg;
                 },
 
-                createSpriteSheet = function createSpriteSheet(spriteSheetDesc, onLoad) {
+                createSpriteSheet = function createSpriteSheet(spriteSheetDesc, whenReady) {
 
                     var spriteSht = spriteSheets.get(spriteSheetDesc.path),
                         spriteSheetPath,
@@ -128,12 +130,14 @@ define(function (require) {
                         spriteSht.one("ready", function onReadySpriteSheet() {
 
                             ++numberOfResourcesReady;
-                            call(onLoad, spriteSht);
+                            call(whenReady, spriteSht);
                             super_trigger("ready", spriteSheetPath);
                             onReady();
                         });
-                        spriteSht.make();
                         spriteSheets.set(spriteSheetPath, spriteSht);
+                    } else {
+
+                        call(whenReady, spriteSht);
                     }
 
                     return spriteSht;

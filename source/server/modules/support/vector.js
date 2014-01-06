@@ -8,7 +8,7 @@ var pocketKnife = require("./pocketKnife"),
 
     create = function create(array) {
 
-        return pocketKnife.create(prototype).initialise(array);
+        return pocketKnife.create(prototype)._initialise(array);
     };
 
 prototype = {
@@ -107,7 +107,7 @@ prototype = {
         return this._array[index];
     },
 
-    initialise: function initialise(array) {
+    _initialise: function _initialise(array) {
 
         this._array = array || [];
 

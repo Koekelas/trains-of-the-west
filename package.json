@@ -1,7 +1,7 @@
 {
 
     "name": "trains-of-the-west",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "author": "Nicolas De Jaeghere",
     "description": "Multiplayer tycoon game in which you have to build a railway company in the wild west",
     "license": "Custom",

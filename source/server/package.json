@@ -1,7 +1,7 @@
 {
 
     "name": "totw-server",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "author": "Nicolas De Jaeghere",
     "description": "Trains of the West server",
     "private": true,

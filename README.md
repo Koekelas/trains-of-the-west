@@ -2,8 +2,7 @@
 
 Trains of the West is a multiplayer tycoon game in which you have to build a railway company in the wild west. The game client runs, without the need for plugins, inside the browser. Note that this game is far from finished. It may not be playable or it may even crash and burn.
 
-[![title screen]][title screen full]
-[![terrain with tracks]][terrain with tracks full]
+[![title screen]][title screen full][![terrain with tracks]][terrain with tracks full]
 
 # Software requirements
 
@@ -80,10 +79,10 @@ See the client and server readme for additional software requirements.
 
         Clean the documentation directory.
 
-[logo]: https://raw.github.com/Koekelas/trains-of-the-west/master/screenshots/logo.png
-[title screen]: https://raw.github.com/Koekelas/trains-of-the-west/master/screenshots/screenshot01-thumb.png
-[terrain with tracks]: https://raw.github.com/Koekelas/trains-of-the-west/master/screenshots/screenshot02-thumb.png
-[title screen full]: https://raw.github.com/Koekelas/trains-of-the-west/master/screenshots/screenshot01.png "Click for Full Resolution"
-[terrain with tracks full]: https://raw.github.com/Koekelas/trains-of-the-west/master/screenshots/screenshot02.png "Click for Full Resolution"
+[logo]: https://raw.githubusercontent.com/Koekelas/trains-of-the-west/develop/screenshots/logo.png
+[title screen]: https://raw.githubusercontent.com/Koekelas/trains-of-the-west/develop/screenshots/screenshot01-thumb.png
+[terrain with tracks]: https://raw.githubusercontent.com/Koekelas/trains-of-the-west/develop/screenshots/screenshot02-thumb.png
+[title screen full]: https://raw.githubusercontent.com/Koekelas/trains-of-the-west/develop/screenshots/screenshot01.png "Click for Full Resolution"
+[terrain with tracks full]: https://raw.githubusercontent.com/Koekelas/trains-of-the-west/develop/screenshots/screenshot02.png "Click for Full Resolution"
 [play online]: https://totw-nicodeja.rhcloud.com/ "Play Online"
 [Node.js homepage]: http://nodejs.org/ "Node.js Homepage"

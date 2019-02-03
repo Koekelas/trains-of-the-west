@@ -6,8 +6,6 @@ Trains of the West is a multiplayer tycoon game in which you have to build a rai
 
 # Software requirements
 
-> If you just want to try it out, you can find a development version running on [OpenShift][play online]. **There's no need to make an account, just hit "Sign in"**.
-
 Install [Node.js][Node.js homepage] and make sure both Node.js and npm are on your path. Navigate your shell to this directory and run:
 
 ```
@@ -84,5 +82,4 @@ See the client and server readme for additional software requirements.
 [terrain with tracks]: https://raw.githubusercontent.com/Koekelas/trains-of-the-west/develop/screenshots/screenshot02-thumb.png
 [title screen full]: https://raw.githubusercontent.com/Koekelas/trains-of-the-west/develop/screenshots/screenshot01.png "Click for Full Resolution"
 [terrain with tracks full]: https://raw.githubusercontent.com/Koekelas/trains-of-the-west/develop/screenshots/screenshot02.png "Click for Full Resolution"
-[play online]: https://totw-nicodeja.rhcloud.com/ "Play Online"
 [Node.js homepage]: http://nodejs.org/ "Node.js Homepage"

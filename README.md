@@ -1,6 +1,6 @@
 ![logo]
 
-Trains of the West is a multiplayer tycoon game in which you have to build a railway company in the wild west. The game client runs, without the need for plugins, inside the browser. Note that this game is far from finished. It may not be playable or it may even crash and burn.
+Trains of the West is a multiplayer tycoon game in which you have to build a railway company in the wild west. The game client runs, without the need for plugins, inside the browser. Note that this game is far from finished. It may not be playable, it may even crash and burn.
 
 [![title screen]][title screen full][![terrain with tracks]][terrain with tracks full]
 
